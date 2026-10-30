@@ -289,3 +289,28 @@ fieldset.pm-rg abbr{color:#b3261e;text-decoration:none}
 fieldset.pm-rg[aria-invalid=true] .pm-opt span{border-color:#b3261e}
 fieldset.pm-rg .err{font-size:.8rem;min-height:0;display:block;margin-top:5px}
 @media(max-width:560px){.pm-opt span{padding:10px 14px}}
+/* ===== Privacy / legal page ===== */
+.nav.always{position:sticky;top:0;z-index:40;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 4vw;min-height:var(--hdr);box-shadow:0 2px 14px rgba(0,0,0,.18)}
+.nav.always .brand-badge{display:block;background:#fff;border-radius:10px;padding:6px 12px}
+.nav.always .brand-badge img{width:150px;height:auto}
+.nav-actions .lang{display:inline-block;padding:8px 16px;border:1px solid rgba(255,255,255,.5);border-radius:999px;color:#fff;font-size:.85rem;font-weight:600}
+.nav-actions .lang:hover{background:#fff;color:var(--navy)}
+.legal{max-width:820px;margin:0 auto;padding:48px 5vw 64px}
+.legal h1{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:8px}
+.legal h2{font-size:1.3rem;margin:30px 0 8px}
+.legal p{margin-bottom:12px;color:var(--ink)}
+.legal ul{list-style:disc;padding-left:22px;margin-bottom:12px}
+.legal li{margin-bottom:4px}
+.legal a{color:var(--navy);text-decoration:underline}
+.legal .note{background:#fff7e0;border-left:4px solid var(--gold);padding:10px 14px;border-radius:8px;font-size:.88rem;color:var(--mute);margin:16px 0}
+
+/* credit line */
+.tw-credit{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);text-align:center;font-size:.85rem;color:var(--mute)}
+.tw-wrap{position:relative;display:inline-block}
+.tw-link{display:inline-flex;align-items:center;gap:5px;font-weight:600;color:var(--navy);text-decoration:none!important}
+.tw-link:hover{color:var(--gold)}
+.tw-ico{width:16px;height:16px;stroke:currentColor}
+.tw-spark{color:var(--gold)}
+.tw-tip{position:absolute;left:50%;bottom:130%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:8px 12px;border-radius:8px;font-size:.75rem;white-space:nowrap;opacity:0;visibility:hidden;transition:.2s;text-align:center}
+.tw-tip b{display:block;color:var(--gold2)}
+.tw-wrap:hover .tw-tip,.tw-wrap:focus-within .tw-tip{opacity:1;visibility:visible}
