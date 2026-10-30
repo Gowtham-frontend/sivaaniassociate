@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-# If your admin panel lives in a folder, block it here, e.g. Disallow: /admin/
-# (also add <meta name="robots" content="noindex"> to the admin page itself)
-
-Sitemap: https://sivaaniassociate.com/sitemap.xml
