@@ -314,3 +314,37 @@ fieldset.pm-rg .err{font-size:.8rem;min-height:0;display:block;margin-top:5px}
 .tw-tip{position:absolute;left:50%;bottom:130%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:8px 12px;border-radius:8px;font-size:.75rem;white-space:nowrap;opacity:0;visibility:hidden;transition:.2s;text-align:center}
 .tw-tip b{display:block;color:var(--gold2)}
 .tw-wrap:hover .tw-tip,.tw-wrap:focus-within .tw-tip{opacity:1;visibility:visible}
+/* ===== Client update: service icons, brand tagline, posters ===== */
+.cards.svc{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:1000px){.cards.svc{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:560px){.cards.svc{grid-template-columns:minmax(0,1fr)}}
+.svc .ico{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--navy);color:var(--gold2);font-size:inherit;margin-bottom:4px;box-shadow:inset 0 0 0 1px rgba(201,164,92,.45)}
+.svc .ico svg{width:28px;height:28px}
+.svc .card h3{font-size:1.02rem}
+.svc .card .flag{display:block;margin-top:4px}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.acts a:not(.btn){font-weight:600;font-size:.88rem;text-decoration:underline}
+.acts .btn.mini{margin:0}
+.tagline{color:#8a5a00;font-weight:600;letter-spacing:.02em;margin:0 0 6px!important}
+.ftag{color:var(--gold2);font-weight:600;margin-bottom:6px}
+
+.posters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:26px}
+@media(max-width:1100px){.posters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.posters{grid-template-columns:minmax(0,1fr)}}
+.poster{--glow:rgba(201,164,92,.30);position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:18px;color:#fff;background:linear-gradient(160deg,var(--navy) 0,var(--navy2) 100%);border:1px solid rgba(201,164,92,.4);box-shadow:0 16px 36px rgba(11,23,48,.22);transition:transform .25s,box-shadow .25s}
+.poster:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(11,23,48,.3)}
+.poster.p-health{--glow:rgba(59,116,242,.38)}
+.poster.p-career{--glow:rgba(227,194,125,.26)}
+.poster-art{display:grid;place-items:center;padding:22px 16px 6px;background:radial-gradient(circle at 50% 45%,var(--glow),transparent 64%)}
+.poster-art svg{width:100%;max-width:230px;height:auto}
+.poster-body{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:8px 22px 20px;flex:1}
+.poster-tag{border:1px solid var(--gold);color:var(--gold2);border-radius:999px;padding:2px 12px;font-size:.74rem;font-weight:600}
+.poster h3{color:#fff;font-size:1.3rem}
+.poster-body>p{color:#d3dbee;font-size:.9rem}
+.poster-list{display:grid;gap:6px;color:#d3dbee;font-size:.9rem}
+.poster-list li::before{content:"✔ ";color:var(--gold)}
+.poster .btn{margin-top:auto}
+.poster-note{color:#9fb0d3;font-size:.74rem;line-height:1.4;min-height:2.8em}
+.poster-brand{display:flex;flex-direction:column;gap:1px;padding:12px 22px;background:rgba(0,0,0,.28);border-top:1px solid rgba(201,164,92,.4);line-height:1.3}
+.poster-brand b{color:var(--gold2);letter-spacing:.08em;font-size:.78rem}
+.poster-brand span{color:#c3cde4;font-size:.72rem}
