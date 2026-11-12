@@ -3,307 +3,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insurance Advisor in Erode | LIC &amp; Tata AIA Guidance | Sivaani Associate</title>
-<meta name="description" content="Sivaani Associate, Erode: personal guidance on life, term, health, child education, savings and retirement insurance. Tamil and English support.">
-<link rel="canonical" href="https://sivaaniassociate.com/">
-<meta name="theme-color" content="#0B1730">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Insurance Advisor in Erode | Sivaani Associate">
-<meta property="og:description" content="Life, term, health, child education, savings and retirement insurance guidance in Erode.">
-<meta property="og:url" content="https://sivaaniassociate.com/">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Sivaani Associate – Your Trusted Insurance Partner | Erode</title>
+<meta name="description" content="Sivaani Associate, Erode – expert guidance for life, health, child, retirement and vehicle insurance.">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=11">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/hero/slide-1.webp" type="image/webp" fetchpriority="high" imagesrcset="images/hero/slide-1-m.webp 1100w, images/hero/slide-1.webp 2200w" imagesizes="100vw">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="enquiry.css">
+<link rel="stylesheet" href="catalogue.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="wrap">
+  <div class="tb-left">
+    <a id="tbPhone" class="ico" href="#"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11 11 0 003.5.56 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.2.2 2.4.56 3.500a1 1 0 01-.25 1z"/></svg><span></span></a>
+    <a id="tbMail" class="ico hide-sm" href="#"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm9 7L4 7v1.500l8 5 8-5V7z"/></svg><span></span></a>
+    <span id="tbLoc" class="ico hide-md"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.500A2.5 2.5 0 119.5 9 2.5 2.5 0 0112 11.500z"/></svg><span></span></span>
+  </div>
+  <div class="tb-right">
+    <div class="lang" role="group" aria-label="Language"><button data-lang="ta" class="on">தமிழ்</button><button data-lang="en">English</button></div>
+    <div class="social" id="social"></div>
+  </div>
+</div></div>
 
-<!-- Announcement bar: messages are set in js/main.js (CONFIG.announcements) -->
-<div class="ann" role="region" aria-label="Announcements">
-  <p id="annText" aria-live="polite"></p>
-  <button type="button" id="annPause" aria-label="Pause announcements">❚❚</button>
-</div>
-
-<div class="util">
-  <span>📍 Erode, Tamil Nadu</span>
-  <a href="tel:+919443704626">📞 +91 94437 04626</a>
-  <a href="https://wa.me/917373790009" target="_blank" rel="noopener">💬 WhatsApp +91 73737 90009</a>
-</div>
-
-<header class="hdr" id="hdr">
-  <a class="brand" href="#top" aria-label="Sivaani Associate home"><span class="mark"><img src="images/logo-icon.png" width="38" height="38" alt=""></span><span>Sivaani Associate<small>Your Trusted Insurance Partner</small></span></a>
-  <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Open menu">☰</button>
-  <nav id="nav" aria-label="Main">
-    <ul>
-      <li><a href="#top">Home</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#products">Products</a></li>
-      <li class="dd"><button type="button" aria-expanded="false">Life Insurance ▾</button>
-        <ul><li><a href="#explore" data-tab="life">Life Insurance</a></li><li><a href="#explore" data-tab="term">Term Insurance</a></li></ul></li>
-      <li class="dd"><button type="button" aria-expanded="false">Health &amp; General ▾</button>
-        <ul><li><a href="#explore" data-tab="health">Health Insurance</a></li><li><a href="#explore" data-tab="general">General Insurance</a></li></ul></li>
-      <li><a href="#explore" data-tab="savings">Investment &amp; Savings</a></li>
-      <li><a href="#explore" data-tab="child">Child Future Planning</a></li>
-      <li><a href="#explore" data-tab="retire">Retirement Planning</a></li>
-      <li><a href="#career">Career / Business</a></li>
-      <li><a href="#enquiry">Contact Us</a></li>
-    </ul>
-    <div class="hdr-cta"><a class="btn ghost" href="tel:+919443704626">Call Now</a><a class="btn gold" href="#enquiry">Get Consultation</a></div>
+<header class="header"><div class="wrap">
+  <a class="logo" href="#home" aria-label="Sivaani Associate">
+    <span><img class="logo-img" src="images/logo-full.png" alt="Sivaani Associate" width="1681" height="505"><i data-i18n="tagline">Your Trusted Insurance Partner</i></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#home" class="active" data-i18n="nav_home">Home</a>
+    <div class="dd"><a href="#about" data-i18n="nav_about">About Us</a><ul><li><a href="#why" data-i18n="dd_why">Why Choose Us</a></li><li><a href="#testimonials" data-i18n="dd_exp">Our Experience</a></li></ul></div>
+    <div class="dd"><a href="#products" data-i18n="nav_products">Insurance Products</a><ul id="ddProducts"></ul></div>
+    <a href="#career" data-i18n="nav_career">Career</a>
+    <a href="#testimonials" data-i18n="nav_testi">Testimonials</a>
+    <a href="#contact" data-i18n="nav_contact">Contact Us</a>
   </nav>
-</header>
+  <a class="btn gold enq" id="enqBtn" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.400A10 10 0 1012 2zm5.3 14.100c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.200s-1.1-1.5-1.1-2.8.7-2 1-2.300a1 1 0 01.7-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.2.1.3 0 .5l-.3.5-.4.400c-.1.2-.3.3-.1.600a7 7 0 001.3 1.6 6.5 6.5 0 001.9 1.200c.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.300z"/></svg><span data-i18n="enquire">Enquire Now</span> →</a>
+  <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+</div></header>
 
-<main id="main">
-<section class="hero" id="top">
-  <div class="hero-copy">
-    <p class="chip">30+ years of experience (to be confirmed by owner)</p>
-    <h1>Protect Your Family. Plan Your Future. Build Financial Confidence.</h1>
-    <p class="lead"></p>
-    <div class="cta-row">
-      <a class="btn gold" href="#enquiry">Get Free Consultation</a>
-      <a class="btn outline" href="#products">Explore Insurance Plans</a>
-      <a class="btn wa" href="https://wa.me/917373790009?text=Hello%20Sivaani%20Associate%2C%20I%20need%20insurance%20guidance." target="_blank" rel="noopener">WhatsApp Enquiry</a>
+<main>
+<section class="hero" id="home">
+  <div class="hero-slider" id="heroSlider" role="region" aria-roledescription="carousel" aria-label="Family protection photo slideshow">
+    <div class="hs is-active kb" style="--op:53.5% 26%" role="group" aria-roledescription="slide" aria-label="1 of 4"><picture><source type="image/webp" srcset="images/hero/slide-1-m.webp 1100w, images/hero/slide-1.webp 2200w" sizes="100vw"><img src="images/hero/slide-1.jpg" srcset="images/hero/slide-1-m.jpg 1100w, images/hero/slide-1.jpg 2200w" sizes="100vw" alt="Smiling Indian family of four – parents with their son and daughter" width="2200" height="900" decoding="async" fetchpriority="high"></picture></div>
+    <div class="hs" style="--op:53.5% 34%" role="group" aria-roledescription="slide" aria-label="2 of 4" aria-hidden="true"><picture><source type="image/webp" data-srcset="images/hero/slide-2-m.webp 1100w, images/hero/slide-2.webp 2200w" sizes="100vw"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/hero/slide-2.jpg" data-srcset="images/hero/slide-2-m.jpg 1100w, images/hero/slide-2.jpg 2200w" sizes="100vw" alt="Happy schoolgirl dreaming of a bright future" width="2200" height="900" decoding="async"></picture></div>
+    <div class="hs" style="--op:53.5% 30%" role="group" aria-roledescription="slide" aria-label="3 of 4" aria-hidden="true"><picture><source type="image/webp" data-srcset="images/hero/slide-3-m.webp 1100w, images/hero/slide-3.webp 2200w" sizes="100vw"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/hero/slide-3.jpg" data-srcset="images/hero/slide-3-m.jpg 1100w, images/hero/slide-3.jpg 2200w" sizes="100vw" alt="Confident young Indian woman working at her laptop" width="2200" height="900" decoding="async"></picture></div>
+    <div class="hs" style="--op:52% 45%" role="group" aria-roledescription="slide" aria-label="4 of 4" aria-hidden="true"><picture><source type="image/webp" data-srcset="images/hero/slide-4-m.webp 1100w, images/hero/slide-4.webp 2400w" sizes="100vw"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/hero/slide-4.jpg" data-srcset="images/hero/slide-4-m.jpg 1100w, images/hero/slide-4.jpg 2400w" sizes="100vw" alt="Three generations of an Indian family laughing together in a garden" width="2400" height="700" decoding="async"></picture></div>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+  </div>
+  <div class="hero-fx" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="hero-ctrl" id="heroCtrl" role="group" aria-label="Slideshow controls">
+    <button type="button" id="hsPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="M15.4 5.4 14 4l-8 8 8 8 1.4-1.4L8.8 12z"/></svg></button>
+    <button type="button" id="hsToggle" aria-label="Pause slideshow" aria-pressed="false"><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    <div class="hs-dots" id="hsDots"></div>
+    <button type="button" id="hsNext" aria-label="Next slide"><svg viewBox="0 0 24 24"><path d="M8.6 5.4 10 4l8 8-8 8-1.4-1.4 6.6-6.6z"/></svg></button>
+  </div>
+  <div class="wrap hero-in">
+  <div class="hero-text">
+    <h1><span data-i18n="h1a">Your Family. Your Future.</span> <em data-i18n="h1b">Our Priority.</em></h1>
+    <p class="sub ta-font" data-i18n="hsub">உங்கள் குடும்பத்தின் எதிர்காலத்தை பாதுகாக்க சரியான Insurance வழிகாட்டுதல்.</p>
+    <a class="btn gold lg" href="#products"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5z"/></svg><span data-i18n="explore">Explore Insurance Plans</span> →</a>
+  </div>
+  <div class="hero-vis has-img" id="heroVis"><svg class="shield" viewBox="0 0 120 140"><defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#F7D060"/></linearGradient></defs><path d="M60 6l50 18v40c0 34-22 60-50 72C32 124 10 98 10 64V24z" fill="rgba(255,255,255,.12)" stroke="url(#g2)" stroke-width="4"/><circle cx="46" cy="52" r="8" fill="#F7D060"/><circle cx="74" cy="52" r="8" fill="#fff"/><path d="M34 100V68a12 12 0 0124 0v32zM62 100V68a12 12 0 0124 0v32z" fill="#F7D060" opacity=".85"/></svg></div>
+  <form class="card-form" id="leadForm" novalidate>
+    <div class="cf-head"><b data-i18n="gh">Get Expert Guidance</b><span data-i18n="gs">Find the Right Insurance Plan</span></div>
+    <div class="cf-body">
+      <label class="f"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5 0-9 2.5-9 5.500V22h18v-2.500C21 16.5 17 14 12 14z"/></svg><input id="fName" required data-i18n-ph="ph_name" placeholder="Your Name *"></label>
+      <label class="f"><svg viewBox="0 0 24 24"><path d="M6.6 10.800a15 15 0 006.6 6.600l2.2-2.200a1 1 0 011-.25 11 11 0 003.5.56 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.500a1 1 0 011 1c0 1.2.2 2.4.56 3.500a1 1 0 01-.25 1z"/></svg><input id="fMobile" type="tel" inputmode="numeric" maxlength="14" required data-i18n-ph="ph_mobile" placeholder="Mobile Number *"></label>
+      <label class="f"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5z"/></svg><select id="fType"></select></label>
+      <label class="f"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7z"/></svg><input id="fCity" data-i18n-ph="ph_city" placeholder="Your City"></label>
+      <label class="f"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 11H7v-2h4V6h2z"/></svg><select id="fTime"></select></label>
+      <p class="err" id="fErr" role="alert"></p>
+      <button class="btn gold block" type="submit"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.400A10 10 0 1012 2z"/></svg><span data-i18n="chat">Chat on WhatsApp</span> →</button>
+      <small class="safe"><svg viewBox="0 0 24 24"><path d="M17 9V7a5 5 0 00-10 0v2H5v12h14V9zm-8-2a3 3 0 016 0v2H9z"/></svg><span data-i18n="safe">Your details are safe with us</span></small>
     </div>
-    <ul class="trust"><li>Tamil &amp; English support</li><li>Needs-based guidance</li><li>LIC · Tata AIA · Star Health · Galaxy Health</li></ul>
-  </div>
-
-  <div class="slider" id="slider" role="region" aria-roledescription="carousel" aria-label="Featured promotions" tabindex="0">
-    <div class="slides">
-      <figure class="slide on"><img src="images/image 1 .png" width="2752" height="1536" alt="Tata AIA Supreme Endowment poster with a family of four"><figcaption><b>Tata AIA endowment plan</b><a href="#explore" data-tab="savings">Learn more</a></figcaption></figure>
-      <figure class="slide"><img src="images/image 2.png" width="2752" height="1536" alt="Poster inviting people to join Tata AIA as a life insurance advisor" loading="lazy"><figcaption><b>Join as a life insurance advisor</b><a href="#career">Know more</a></figcaption></figure>
-      <figure class="slide"><img src="images/image 3.png" width="2752" height="1536" alt="Business Opportunity Meet 2026 banner with four professionals" loading="lazy"><figcaption><b>Business Opportunity Meet 2026</b><a href="#career">Know more</a></figcaption></figure>
-      <figure class="slide fit"><img src="images/image 4.png" width="2752" height="1536" alt="Smiling schoolgirl with books, poster about child education planning" loading="lazy"><figcaption><b>Child education planning</b><a href="#explore" data-tab="child">Learn more</a></figcaption></figure>
-    </div>
-    <button class="arrow prev" type="button" aria-label="Previous slide">‹</button>
-    <button class="arrow next" type="button" aria-label="Next slide">›</button>
-    <div class="dots" role="tablist" aria-label="Choose slide"></div>
-  </div>
-</section>
-
-<section class="sec prod" id="products" aria-labelledby="prodTitle">
-  <div class="prod-head">
-    <h2 id="prodTitle">One Stop Solution for You &amp; Your Family</h2>
-    <p class="sub">Explore the right insurance plans to protect your family, health, savings, vehicle, and future.</p>
-  </div>
-  <ul class="pgrid" id="productGrid" aria-label="Insurance products"></ul>
-  <div class="prod-more"><button type="button" class="vall" id="prodMore" aria-expanded="false" aria-controls="productGrid">View all products</button></div>
-  <noscript><p class="note">Please enable JavaScript to browse products, or call <a href="tel:+919443704626">+91 94437 04626</a> or message us on <a href="https://wa.me/917373790009">WhatsApp</a>.</p></noscript>
-  <p class="note">Select a product to see details and send an enquiry. Plan features, premiums and eligibility depend on the insurer.</p>
-</section>
-
-<section class="sec" id="categories">
-  <h2>Choose what you want to protect or plan</h2>
-  <p class="sub">Each card opens its own details below. Terms, premiums and benefits come from the insurer.</p>
-  <div class="cards svc">
-    <article class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 5 6v5.5c0 4.6 3 7.6 7 9.5 4-1.9 7-4.9 7-9.5V6z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Term Insurance</h3><p>Pure protection with a higher cover for those who depend on you.</p><div class="acts"><a href="#explore" data-tab="term">Learn more</a><a class="btn mini" href="#enquiry" data-cat="Term Insurance">Enquire Now</a></div></article>
-    <article class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-8-4.8-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 6.2-8 11-8 11z"/><path d="M12 9.5v5M9.5 12h5"/></svg></span><h3>Health Insurance</h3><p>Plan ahead for hospital and treatment costs.</p><div class="acts"><a href="#explore" data-tab="health">Learn more</a><a class="btn mini" href="#enquiry" data-cat="Health Insurance">Enquire Now</a></div></article>
-    <article class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 18 0z"/><path d="M12 12v6.5a2 2 0 0 0 4 0"/><path d="M12 3v1.5"/></svg></span><h3>Life Insurance</h3><p>Financial security for your family if your income stops.</p><div class="acts"><a href="#explore" data-tab="life">Learn more</a><a class="btn mini" href="#enquiry" data-cat="Life Insurance">Enquire Now</a></div></article>
-    <article class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H18a1 1 0 0 1 1 1v2"/><path d="M3 7.5V18a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1H5.5A2.5 2.5 0 0 1 3 7.5z"/><circle cx="16" cy="14.5" r="1.2"/></svg></span><h3>Savings Insurance</h3><p>Build a savings habit and explore options for future income.</p><div class="acts"><a href="#explore" data-tab="savings">Learn more</a><a class="btn mini" href="#enquiry" data-cat="Savings and Investment">Enquire Now</a></div></article>
-    <article class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5"/><path d="M22 9v6"/></svg></span><h3>Child Education / Marriage Plans</h3><p>Start early to plan for education and marriage milestones.</p><div class="acts"><a href="#explore" data-tab="child">Learn more</a><a class="btn mini" href="#enquiry" data-cat="Child Education">Enquire Now</a></div></article>
-    <article class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/><path d="M3 21h18"/></svg></span><h3>Investment Plans (Guaranteed / ULIP)</h3><p>Explore guaranteed and market-linked (ULIP) options. Market-linked benefits are not guaranteed.</p><div class="acts"><a href="#explore" data-tab="savings">Learn more</a><a class="btn mini" href="#enquiry" data-cat="Savings and Investment">Enquire Now</a></div></article>
-    <article class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18"/><path d="M6.5 19a5.5 5.5 0 0 1 11 0"/><path d="M12 6V3.5M4.9 9.9 3.4 8.4M19.1 9.9l1.5-1.5M2.5 14.5h2M19.5 14.5h2"/></svg></span><h3>Retirement / Pension Plans</h3><p>Prepare today for income in your retirement years.</p><div class="acts"><a href="#explore" data-tab="retire">Learn more</a><a class="btn mini" href="#enquiry" data-cat="Retirement and Pension">Enquire Now</a></div></article>
-    <article class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M5 12v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg></span><h3>Gift Insurance</h3><p>A way to protect someone you care about. <em class="flag">(Owner to confirm available plans.)</em></p><div class="acts"><a class="btn mini" href="#enquiry" data-cat="Gift Insurance">Enquire Now</a></div></article>
-    <article class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 15.5V12l2-5.5h13l2 5.5v3.5z"/><path d="M3.5 12h17"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/></svg></span><h3>Car / Vehicle Insurance</h3><p>Cover for your car and other vehicles, subject to insurer availability.</p><div class="acts"><a href="#explore" data-tab="general">Learn more</a><a class="btn mini" href="#enquiry" data-cat="Car Insurance">Enquire Now</a></div></article>
-    <article class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span><h3>Career Opportunity</h3><p>Explore a flexible working opportunity as an insurance advisor.</p><div class="acts"><a href="#career">Learn more</a><a class="btn mini" href="#enquiry" data-cat="Career / Business Opportunity">Enquire Now</a></div></article>
-  </div>
-</section>
-
-<section class="sec alt" id="posters" aria-labelledby="postersTitle">
-  <h2 id="postersTitle">Guidance for every stage of life</h2>
-  <p class="sub">Talk to Sivaani Associate about what matters most to your family. Terms, premiums and benefits depend on the insurer.</p>
-  <div class="posters">
-    <article class="poster p-school">
-      <div class="poster-art" aria-hidden="true">
-      <svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Graduation cap on a stack of books">
-        <polygon points="120,14 196,42 120,70 44,42" fill="#C9A45C"/>
-        <path d="M76 58v20c0 9 19 17 44 17s44-8 44-17V58l-44 16z" fill="rgba(255,255,255,.14)" stroke="#C9A45C" stroke-width="2.5" stroke-linejoin="round"/>
-        <path d="M196 42v38" stroke="#e3c27d" stroke-width="3" stroke-linecap="round"/><circle cx="196" cy="85" r="4.5" fill="#e3c27d"/>
-        <rect x="70" y="112" width="100" height="11" rx="3" fill="rgba(255,255,255,.9)"/>
-        <rect x="78" y="124" width="92" height="11" rx="3" fill="#C9A45C"/>
-        <rect x="64" y="136" width="104" height="10" rx="3" fill="rgba(255,255,255,.75)"/>
-      </svg>
-      </div>
-      <div class="poster-body">
-        <span class="poster-tag">Child Education</span>
-        <h3>Plan for your child’s school fees</h3>
-        <p>Start early and match your savings to the years when education costs arrive.</p>
-        <a class="btn gold" href="#enquiry" data-cat="Child Education">Enquire Now</a>
-        <small class="poster-note">Benefits depend on the plan and the insurer.</small>
-      </div>
-      <p class="poster-brand"><b>SIVAANI ASSOCIATE</b><span>Your Trusted Insurance Partner</span></p>
-    </article>
-    <article class="poster p-health">
-      <div class="poster-art" aria-hidden="true">
-      <svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shield with a medical cross">
-        <path d="M10 112H78l10-22 14 40 12-30 8 12H230" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M120 10 176 30v46c0 28-24 48-56 62-32-14-56-34-56-62V30z" fill="rgba(11,23,48,.55)" stroke="#C9A45C" stroke-width="3.5" stroke-linejoin="round"/>
-        <rect x="111" y="46" width="18" height="52" rx="4" fill="#C9A45C"/><rect x="94" y="63" width="52" height="18" rx="4" fill="#C9A45C"/>
-      </svg>
-      </div>
-      <div class="poster-body">
-        <span class="poster-tag">Health Insurance</span>
-        <h3>Be ready for hospital and treatment costs</h3>
-        <p>Compare sum insured, waiting periods and the hospital network near Erode with Star Health and Galaxy Health plans.</p>
-        <a class="btn gold" href="#enquiry" data-cat="Health Insurance">Enquire Now</a>
-        <small class="poster-note">Terms and exclusions are as per the insurer’s policy document.</small>
-      </div>
-      <p class="poster-brand"><b>SIVAANI ASSOCIATE</b><span>Your Trusted Insurance Partner</span></p>
-    </article>
-    <article class="poster p-guide">
-      <div class="poster-art" aria-hidden="true">
-      <svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Compass representing guidance">
-        <circle cx="120" cy="76" r="58" fill="rgba(255,255,255,.07)" stroke="#C9A45C" stroke-width="3"/>
-        <circle cx="120" cy="76" r="46" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5" stroke-dasharray="3 5"/>
-        <g stroke="#e3c27d" stroke-width="3" stroke-linecap="round"><path d="M120 12v9M120 131v9M56 76h9M175 76h9"/></g>
-        <g transform="rotate(35 120 76)"><polygon points="120,34 132,76 108,76" fill="#C9A45C"/><polygon points="120,118 132,76 108,76" fill="rgba(255,255,255,.85)"/></g>
-        <circle cx="120" cy="76" r="5" fill="#0B1730" stroke="#e3c27d" stroke-width="2"/>
-      </svg>
-      </div>
-      <div class="poster-body">
-        <span class="poster-tag">Personal guidance</span>
-        <h3>Your Insurance Guiding Partner</h3>
-        <p>Personal, needs-based guidance in Tamil and English, from your first question to follow-up after you decide.</p>
-        <a class="btn gold" href="#enquiry">Talk to Us</a>
-        <small class="poster-note">LIC · Tata AIA · Star Health · Galaxy Health</small>
-      </div>
-      <p class="poster-brand"><b>SIVAANI ASSOCIATE</b><span>Your Trusted Insurance Partner</span></p>
-    </article>
-    <article class="poster p-career">
-      <div class="poster-art" aria-hidden="true">
-      <svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Briefcase with two people">
-        <rect x="76" y="56" width="88" height="66" rx="9" fill="rgba(255,255,255,.12)" stroke="#C9A45C" stroke-width="3.5"/>
-        <path d="M104 56V46a6 6 0 0 1 6-6h20a6 6 0 0 1 6 6v10" fill="none" stroke="#C9A45C" stroke-width="3.5" stroke-linecap="round"/>
-        <path d="M76 88h88" stroke="#C9A45C" stroke-width="3"/><rect x="111" y="81" width="18" height="14" rx="3" fill="#C9A45C"/>
-        <g fill="rgba(255,255,255,.8)"><circle cx="38" cy="72" r="10"/><path d="M20 112a18 18 0 0 1 36 0z"/><circle cx="202" cy="72" r="10"/><path d="M184 112a18 18 0 0 1 36 0z"/></g>
-      </svg>
-      </div>
-      <div class="poster-body">
-        <span class="poster-tag">Career Opportunity</span>
-        <h3>Build a career as an insurance advisor</h3>
-        <ul class="poster-list"><li>Flexible working opportunity</li><li>Part-time or full-time, subject to availability</li><li>Training and online training support</li></ul>
-        <a class="btn gold" href="#enquiry" data-cat="Career / Business Opportunity">Know More</a>
-        <small class="poster-note">Eligibility and terms to be confirmed by Sivaani Associate.</small>
-      </div>
-      <p class="poster-brand"><b>SIVAANI ASSOCIATE</b><span>Your Trusted Insurance Partner</span></p>
-    </article>
-  </div>
-</section>
-
-<section class="sec alt" id="explore">
-  <h2>Explore each insurance topic</h2>
-  <div class="tabs" role="tablist" aria-label="Insurance topics" id="tabs"></div>
-  <div id="panels"></div>
-</section>
-
-<section class="sec" id="about">
-  <div class="two">
-    <div>
-      <h2>About Sivaani Associate</h2>
-      <p class="tagline">Your Trusted Insurance Partner</p>
-      <p>Sivaani Associate is an insurance advisory in Erode that helps families understand protection, health cover, savings and retirement options before they decide. We explain plans in Tamil or English and stay in touch after your enquiry.</p>
-      <p><b>Experience:</b> 30+ years <em class="flag">(to be confirmed by owner)</em></p>
-      <address>Selvalakshmi Building, 182/1 Mettur Road,<br>Near Agarwal Eye Hospital,<br>Erode, Tamil Nadu – 638011</address>
-      <div class="cta-row"><a class="btn gold" href="tel:+919443704626">Call Now</a><a class="btn wa" href="https://wa.me/917373790009" target="_blank" rel="noopener">WhatsApp</a></div>
-    </div>
-    <div id="companies">
-      <h3>Insurers we guide you on</h3>
-      <ul class="logos">
-        <li><b>TATA AIA Life Insurance</b><span>Life, savings, pension</span></li>
-        <li><b>Life Insurance Corporation of India (LIC)</b><span>Life, child, pension</span></li>
-        <li><b>Star Health Insurance</b><span>Health</span></li>
-        <li><b>Galaxy Health Insurance</b><span>Health</span></li>
-      </ul>
-      <p class="flag">Logo placeholders: add authorised insurer logos in assets/images/.</p>
-    </div>
-  </div>
-</section>
-
-<section class="sec alt" id="why">
-  <h2>Why plan your financial future with Sivaani Associate?</h2>
-  <div class="cards sm">
-    <article class="card"><h3>30+ years</h3><p>Experience in insurance guidance <em class="flag">(confirm)</em>.</p></article>
-    <article class="card"><h3>Claim support</h3><p>Guidance when you need to make a claim.</p></article>
-    <article class="card"><h3>Free consultation</h3><p><em class="flag">(Confirm service terms.)</em></p></article>
-    <article class="card"><h3>Personal guidance</h3><p>Options explained against your family's needs.</p></article>
-    <article class="card"><h3>Family protection</h3><p>Cover for those who depend on your income.</p></article>
-    <article class="card"><h3>Long-term planning</h3><p>Savings, child education and retirement.</p></article>
-  </div>
-  <p class="note">Insurance is protection, not a guaranteed way to build wealth. Market-linked products carry investment risk, and every benefit depends on the policy terms.</p>
-</section>
-
-<section class="sec" id="career">
-  <div class="two">
-    <div>
-      <h2>Career / business opportunity</h2>
-      <ul class="tick">
-        <li>Flexible working opportunity</li>
-        <li>Part-time or full-time options, subject to availability</li>
-        <li>Training and online training support</li>
-        <li>Customer communication and insurance awareness work</li>
-      </ul>
-      <p class="warn">Income discussed in the original notes: ₹30,000–₹40,000 per month. <b>This is a potential figure, not a guaranteed salary.</b> Actual earnings, eligibility and terms to be confirmed by Sivaani Associate. <em class="flag">(Owner to verify before publishing.)</em></p>
-      <a class="btn gold" href="#enquiry" data-cat="Career / Business Opportunity">Know More</a>
-    </div>
-    <img class="career-img" src="images/image 2.png" width="1009" height="949" loading="lazy" alt="Poster inviting people to join Tata AIA as a life insurance advisor">
-  </div>
-</section>
-
-<section class="sec alt" id="process">
-  <h2>How we work with you</h2>
-  <ol class="steps">
-    <li><b>Share your requirements</b><span>Call, WhatsApp or send the form.</span></li>
-    <li><b>Discuss your insurance needs</b><span>We listen to your family's goals.</span></li>
-    <li><b>Review suitable options</b><span>We explain what is available.</span></li>
-    <li><b>Follow-up and assistance</b><span>Support after you decide.</span></li>
-  </ol>
-  <p class="note">Suitability, eligibility, terms, premiums and benefits depend on the insurer and your circumstances.</p>
-</section>
-
-<section class="sec" id="enquiry">
-  <h2>Send an enquiry</h2>
-  <form id="form" class="form" novalidate>
-    <label>Full name<input name="name" type="text" required autocomplete="name"><small class="err" aria-live="polite"></small></label>
-    <label>Mobile number<input name="mobile" type="tel" inputmode="numeric" maxlength="16" required autocomplete="tel" placeholder="10-digit number"><small class="err" aria-live="polite"></small></label>
-    <label>Email (optional)<input name="email" type="email" autocomplete="email"><small class="err" aria-live="polite"></small></label>
-    <label>Insurance category
-      <select name="category" required><option value="">Select</option><option>Life Insurance</option><option>Health Insurance</option><option>Education Insurance</option><option>Car Insurance</option><option>Bike Insurance</option><option>Travel Insurance</option><option>Home Insurance</option><option>Business Insurance</option><option>Personal Accident Insurance</option><option>Gift Insurance</option><option>Retirement / Pension Insurance</option><option>Career / Business Opportunity</option></select><small class="err" aria-live="polite"></small></label>
-    <div id="enqFields" style="display:contents"></div>
-    <label id="enqTime">Preferred contact time<select name="time"><option>Any time</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></label>
-    <input class="hp" name="_hp" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <label class="check full"><input type="checkbox" name="consent" required><span>I accept the <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and agree to be contacted about my enquiry. <abbr title="required" style="color:#b3261e">*</abbr></span></label>
-    <small class="err full" id="consentErr" aria-live="polite"></small>
-    <button class="btn gold full" type="submit" id="send">Submit Enquiry</button>
-    <p class="status full" id="status" role="status"></p>
   </form>
-</section>
+</div></section>
 
-<section class="sec alt" id="trust">
-  <h2>Customer testimonials</h2>
-  <p class="placeholder">Testimonials will appear here once genuine feedback is supplied by the owner. No reviews have been invented.</p>
-</section>
+<section class="partners"><div class="wrap">
+  <div class="p-lead" data-i18n="trusted">Trusted by Millions of Families</div>
+  <div class="p-logos" id="partners"></div>
+  <div class="p-exp"><span class="laurel">30+</span><b data-i18n="years">Years Experience</b></div>
+</div></section>
 
-<section class="sec" id="faq">
-  <h2>Frequently asked questions</h2>
-  <div class="faq" id="faqList"></div>
-</section>
+<section class="solutions" id="products"><div class="wrap">
+  <h2 class="title"><span data-i18n="sol">Our Insurance Solutions</span></h2>
+  <div class="grid6" id="cards"></div>
+</div></section>
+
+<section class="trio" id="about"><div class="wrap trio-in">
+  <article class="tc navy" id="why">
+    <svg class="big" viewBox="0 0 64 72"><path d="M32 3l27 10v22c0 17-11 29-27 34C16 64 5 52 5 35V13z" fill="none" stroke="#F7D060" stroke-width="4"/><path d="M20 36l8 8 17-18" fill="none" stroke="#F7D060" stroke-width="5" stroke-linecap="round"/></svg>
+    <div><h3 data-i18n="why">Why Choose <b>Sivaani Associate?</b></h3>
+    <ul class="ticks"><li data-i18n="w1">Expert Guidance & Support</li><li data-i18n="w2">Best Policy Options</li><li data-i18n="w3">Transparent Advice</li><li data-i18n="w4">Dedicated Service</li></ul></div>
+  </article>
+  <article class="tc light" id="testimonials">
+    <h3 data-i18n="happy">Happy Customers</h3>
+    <div class="slide"><div class="av" id="tAv"></div><div><p id="tQ"></p><cite id="tN"></cite></div></div>
+    <div class="ctrl"><button id="prev" aria-label="Previous">‹</button><div id="dots"></div><button id="next" aria-label="Next">›</button></div>
+  </article>
+  <article class="tc navy cta" id="career">
+    <svg class="big" viewBox="0 0 72 56"><path d="M4 26l16-14 14 6 12-6 22 18-12 14-8-6-8 6-14-6-8 6z" fill="none" stroke="#F7D060" stroke-width="4" stroke-linejoin="round"/></svg>
+    <div><h3 data-i18n="secure">Let's Secure Your Future Together</h3><p data-i18n="getin">Get in touch with our Insurance Experts today</p>
+    <a class="btn gold" id="ctaWa" href="#" target="_blank" rel="noopener"><span data-i18n="chat">Chat on WhatsApp</span> →</a></div>
+  </article>
+</div></section>
+<section id="catalogue" aria-label="Insurance products catalogue"></section>
 </main>
 
-<footer class="ftr">
-  <div class="ftr-grid">
-    <div><a class="flogo" href="#top" aria-label="Sivaani Associate home"><img src="/images/logo-full.png" width="190" height="63" alt="Sivaani Associate" loading="lazy"></a><p class="ftag">Your Trusted Insurance Partner</p><p>Insurance advisory in Erode, Tamil Nadu. Guidance on life, health, savings, child education and retirement plans.</p></div>
-    <div><b>Insurance</b><ul><li><a href="#explore" data-tab="life">Life</a></li><li><a href="#explore" data-tab="term">Term</a></li><li><a href="#explore" data-tab="health">Health</a></li><li><a href="#explore" data-tab="child">Child education</a></li><li><a href="#explore" data-tab="retire">Retirement</a></li></ul></div>
-    <div><b>Contact</b><p>Selvalakshmi Building, 182/1 Mettur Road, Near Agarwal Eye Hospital, Erode – 638011<br><a href="tel:+919443704626">+91 94437 04626</a><br><a href="https://wa.me/917373790009" target="_blank" rel="noopener">WhatsApp +91 73737 90009</a></p></div>
-    <div><b>Legal</b><ul><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="#disclaimer">Terms &amp; Disclaimer</a></li></ul></div>
-  </div>
-  <p id="disclaimer" class="disc">Insurance is the subject matter of solicitation. Sivaani Associate is an insurance advisor/intermediary and not an insurer, and is not affiliated with Policybazaar. Plan benefits, premiums and returns are as per the insurer's official documents; illustrative values are not guaranteed. Market-linked benefits are not guaranteed. [Add verified IRDAI / agency registration details.]</p>
-  <p class="copy">© 2026 Sivaani Associate. Designed &amp; developed by <a href="https://tamizhwebhub.com/" target="_blank" rel="noopener">Tamizh Web Hub</a>.</p>
-</footer>
-
-<script src="main.js?v=9"></script>
-<script src="products.js?v=9"></script>
-<script src="enquiry.js?v=9"></script>
+<footer class="footer" id="contact"><div class="wrap">
+  <div class="fc"><svg viewBox="0 0 24 24"><path d="M6.6 10.800a15 15 0 006.6 6.600l2.2-2.200a1 1 0 011-.25 11 11 0 003.5.56 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.500a1 1 0 011 1c0 1.2.2 2.4.56 3.500a1 1 0 01-.25 1z"/></svg><div><a id="fPhone" href="#"></a><small data-i18n="callus">Call Us Today</small></div></div>
+  <div class="fc"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm9 7L4 7v1.500l8 5 8-5V7z"/></svg><div><a id="fMail" href="#"></a><small data-i18n="drop">Drop an Email</small></div></div>
+  <div class="fc"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7z"/></svg><div><span id="fLoc"></span><small data-i18n="visit">Visit Our Office</small></div></div>
+  <a class="btn outline" href="#catalogue"><span data-i18n="viewp">View Our Products</span> →</a>
+</div></footer>
+<script src="enquiry-data.js"></script>
+<script src="catalogue-data.js"></script>
+<script src="script.js"></script>
+<script src="enquiry.js"></script>
+<script src="catalogue.js"></script>
 </body>
 </html>
