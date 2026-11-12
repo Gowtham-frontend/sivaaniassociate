@@ -8,11 +8,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="images/hero/slide-1.webp" type="image/webp" fetchpriority="high" imagesrcset="images/hero/slide-1-m.webp 1100w, images/hero/slide-1.webp 2200w" imagesizes="100vw">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="enquiry.css">
 <link rel="stylesheet" href="catalogue.css">
+<link rel="stylesheet" href="fixes.css">
+<link rel="stylesheet" href="popups.css">
 </head>
 <body>
 <div class="topbar"><div class="wrap">
@@ -29,7 +32,7 @@
 
 <header class="header"><div class="wrap">
   <a class="logo" href="#home" aria-label="Sivaani Associate">
-    <span><img class="logo-img" src="images/logo-full.png" alt="Sivaani Associate" width="1681" height="505"><i data-i18n="tagline">Your Trusted Insurance Partner</i></span>
+    <span><picture><source type="image/webp" srcset="images/logo-full.webp"><img class="logo-img" src="images/logo-full.png" alt="Sivaani Associate" width="1681" height="505"></picture><i data-i18n="tagline">Your Trusted Insurance Partner</i></span>
   </a>
   <nav class="nav" id="nav">
     <a href="#home" class="active" data-i18n="nav_home">Home</a>
@@ -124,5 +127,6 @@
 <script src="script.js"></script>
 <script src="enquiry.js"></script>
 <script src="catalogue.js"></script>
+<script src="popups.js"></script>
 </body>
 </html>
