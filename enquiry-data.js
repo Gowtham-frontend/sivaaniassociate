@@ -174,13 +174,6 @@ window.SA_ENQUIRY = {
        "ph": "e.g. 38, 35, 9, 6"
       },
       {
-       "k": "pec",
-       "l": "Existing Medical Conditions (optional)",
-       "t": "textarea",
-       "r": false,
-       "ph": "Only if you wish to share, e.g. diabetes"
-      },
-      {
        "k": "coverage",
        "l": "Required Coverage Amount",
        "t": "select",

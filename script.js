@@ -13,8 +13,7 @@ const CONFIG = {
     { name: "TATA AIA", logo: "", color: "#0A4DA2" },
     { name: "LIC", logo: "", color: "#E6A700" },
     { name: "Star Health", logo: "", color: "#0B3B8C" },
-    { name: "Galaxy Health", logo: "", color: "#6A1B9A" },
-    { name: "Oriental Insurance", logo: "", color: "#C0392B" }
+    { name: "Galaxy Health", logo: "", color: "#6A1B9A" }
   ],
   products: [                              // img: path to photo
     { id: "life", icon: "👨‍👩‍👧", img: "", en: "Life Insurance", ta: "ஆயுள் காப்பீடு" },
@@ -25,20 +24,16 @@ const CONFIG = {
     { id: "vehicle", icon: "🚗", img: "", en: "Vehicle Insurance", ta: "வாகன காப்பீடு" }
   ],
   times: { en: ["Morning (9–12)", "Afternoon (12–4)", "Evening (4–8)"], ta: ["காலை (9–12)", "மதியம் (12–4)", "மாலை (4–8)"] },
-  testimonials: [
-    { en: "Sivaani Associate helped us choose the right health insurance plan. Excellent service!", ta: "சரியான மருத்துவ காப்பீட்டு திட்டத்தை தேர்வு செய்ய சிவானி அசோசியேட் உதவினர். சிறந்த சேவை!", name: "Priya, Erode", nameTa: "பிரியா, ஈரோடு" },
-    { en: "Clear, honest advice on my child's education plan. Highly recommended.", ta: "என் குழந்தையின் கல்வித் திட்டத்திற்கு தெளிவான, நேர்மையான ஆலோசனை. பரிந்துரைக்கிறேன்.", name: "Karthik, Erode", nameTa: "கார்த்திக், ஈரோடு" },
-    { en: "Quick support during my claim. They truly care about families.", ta: "கிளெய்ம் நேரத்தில் விரைவான உதவி. குடும்பங்களை உண்மையில் கவனிக்கிறார்கள்.", name: "Meena, Perundurai", nameTa: "மீனா, பெருந்துறை" }
-  ]
+  testimonials: [],                         // Add ONLY genuine reviews with the customer's written permission: { en:"…", ta:"…", name:"First name, Town", nameTa:"…" }. While empty, the site shows an honest "reviews will appear here" message.
 };
 
 /* ============ i18n ============ */
 const I18N = {
   en: { tagline:"Your Trusted Insurance Partner", nav_home:"Home", nav_about:"About Us", nav_products:"Insurance Products", nav_career:"Career", nav_testi:"Testimonials", nav_contact:"Contact Us", dd_why:"Why Choose Us", dd_exp:"Our Experience", enquire:"Enquire Now",
     h1a:"Your Family.<br>Your Future.", h1b:"Our Priority.", hsub:"உங்கள் குடும்பத்தின் எதிர்காலத்தை பாதுகாக்க சரியான Insurance வழிகாட்டுதல்.", explore:"Explore Insurance Plans",
-    gh:"Get Expert Guidance", gs:"Find the Right Insurance Plan", chat:"Chat on WhatsApp", safe:"Your details are safe with us",
-    trusted:"Trusted by Millions of Families", years:"Years Experience", sol:"Our Insurance Solutions",
-    why:"Why Choose <b>Sivaani Associate?</b>", w1:"Expert Guidance & Support", w2:"Best Policy Options", w3:"Transparent Advice", w4:"Dedicated Service",
+    gh:"Get Expert Guidance", gs:"Find the Right Insurance Plan", chat:"Chat on WhatsApp", safe:"We ask only for what's needed",
+    trusted:"Insurers We Guide You On", years:"Years Experience", sol:"Our Insurance Solutions",
+    why:"Why Choose <b>Sivaani Associate?</b>", w1:"Expert Guidance & Support", w2:"Wide Range of Policy Options", w3:"Transparent Advice", w4:"Dedicated Service",
     happy:"Happy Customers", secure:"Let's Secure Your Future Together", getin:"Get in touch with our Insurance Experts today",
     callus:"Call Us Today", drop:"Drop an Email", visit:"Visit Our Office", viewp:"View Our Products",
     ph_name:"Your Name *", ph_mobile:"Mobile Number *", ph_city:"Your City", ph_type:"Select Insurance Type", ph_time:"Preferred Time",
@@ -46,15 +41,16 @@ const I18N = {
     msg:"Hello Sivaani Associate, I need insurance guidance." },
   ta: { tagline:"உங்கள் நம்பகமான காப்பீட்டு துணை", nav_home:"முகப்பு", nav_about:"எங்களை பற்றி", nav_products:"காப்பீட்டு திட்டங்கள்", nav_career:"வேலைவாய்ப்பு", nav_testi:"வாடிக்கையாளர் கருத்துகள்", nav_contact:"தொடர்புக்கு", dd_why:"ஏன் எங்களை தேர்வு செய்ய வேண்டும்", dd_exp:"எங்கள் அனுபவம்", enquire:"விசாரிக்க",
     h1a:"உங்கள் குடும்பம்.<br>உங்கள் எதிர்காலம்.", h1b:"எங்கள் முன்னுரிமை.", hsub:"உங்கள் குடும்பத்தின் எதிர்காலத்தை பாதுகாக்க சரியான காப்பீட்டு வழிகாட்டுதல்.", explore:"காப்பீட்டு திட்டங்களை பாருங்கள்",
-    gh:"நிபுணர் ஆலோசனை பெறுங்கள்", gs:"சரியான காப்பீட்டு திட்டத்தை கண்டறியுங்கள்", chat:"வாட்ஸ்அப்பில் பேசுங்கள்", safe:"உங்கள் விவரங்கள் பாதுகாப்பாக இருக்கும்",
-    trusted:"லட்சக்கணக்கான குடும்பங்களின் நம்பிக்கை", years:"ஆண்டுகள் அனுபவம்", sol:"எங்கள் காப்பீட்டு தீர்வுகள்",
-    why:"ஏன் <b>சிவானி அசோசியேட்?</b>", w1:"நிபுணர் வழிகாட்டுதல் & ஆதரவு", w2:"சிறந்த பாலிசி தேர்வுகள்", w3:"வெளிப்படையான ஆலோசனை", w4:"அர்ப்பணிப்புடன் சேவை",
+    gh:"நிபுணர் ஆலோசனை பெறுங்கள்", gs:"சரியான காப்பீட்டு திட்டத்தை கண்டறியுங்கள்", chat:"வாட்ஸ்அப்பில் பேசுங்கள்", safe:"தேவையான விவரங்களை மட்டுமே கேட்கிறோம்",
+    trusted:"நாங்கள் வழிகாட்டும் காப்பீட்டு நிறுவனங்கள்", years:"ஆண்டுகள் அனுபவம்", sol:"எங்கள் காப்பீட்டு தீர்வுகள்",
+    why:"ஏன் <b>சிவானி அசோசியேட்?</b>", w1:"நிபுணர் வழிகாட்டுதல் & ஆதரவு", w2:"பல்வேறு பாலிசி தேர்வுகள்", w3:"வெளிப்படையான ஆலோசனை", w4:"அர்ப்பணிப்புடன் சேவை",
     happy:"மகிழ்ச்சியான வாடிக்கையாளர்கள்", secure:"உங்கள் எதிர்காலத்தை சேர்ந்து பாதுகாப்போம்", getin:"எங்கள் காப்பீட்டு நிபுணர்களை இன்றே தொடர்பு கொள்ளுங்கள்",
     callus:"இன்றே அழையுங்கள்", drop:"மின்னஞ்சல் அனுப்புங்கள்", visit:"எங்கள் அலுவலகம்", viewp:"எங்கள் திட்டங்களை பாருங்கள்",
     ph_name:"உங்கள் பெயர் *", ph_mobile:"மொபைல் எண் *", ph_city:"உங்கள் ஊர்", ph_type:"காப்பீட்டு வகையை தேர்வு செய்யவும்", ph_time:"வசதியான நேரம்",
     e_name:"உங்கள் பெயரை உள்ளிடவும்.", e_mobile:"சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்.", e_type:"காப்பீட்டு வகையை தேர்வு செய்யவும்.",
     msg:"வணக்கம் சிவானி அசோசியேட், எனக்கு காப்பீட்டு ஆலோசனை வேண்டும்." }
 };
+if (window.SA_TRUST && SA_TRUST.i18n) { Object.assign(I18N.en, SA_TRUST.i18n.en); Object.assign(I18N.ta, SA_TRUST.i18n.ta); }   /* trust-data.js */
 let lang = localStorage.getItem("sa_lang") || "ta", tIdx = 0, timer;
 const $ = s => document.querySelector(s), t = k => I18N[lang][k];
 const wa = txt => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(txt)}`;
@@ -100,18 +96,20 @@ function applyLang(l){
   $("#fType").setAttribute("aria-label", t("ph_type")); $("#fTime").setAttribute("aria-label", t("ph_time"));
   const bg = $("#burger"); if (bg && !$("#nav").classList.contains("open")) bg.setAttribute("aria-label", l === "ta" ? "மெனு" : "Menu");
   const loc = CONFIG.location[l]; $("#tbLoc span").textContent = $("#fLoc").textContent = loc;
-  $("#ctaWa").href = wa(t("msg")); renderT();
+  $("#ctaWa").href = wa(t("msg")); renderT(); if (window.renderTrust) window.renderTrust();
 }
 
 /* ============ testimonials slider ============ */
 function renderT(){
+  const card = $("#testimonials"), none = !CONFIG.testimonials.length; card.classList.toggle("is-empty", none);
+  if (none) { $("#tQ").textContent = t("te_empty"); $("#tN").textContent = ""; $("#tAv").textContent = ""; return; }
   const x = CONFIG.testimonials[tIdx], nm = lang === "ta" ? x.nameTa : x.name, av = CONFIG.images.avatars[tIdx];
   const s = $(".slide"); s.style.animation = "none"; void s.offsetWidth; s.style.animation = "";
   $("#tQ").textContent = `“${x[lang]}”`; $("#tN").textContent = "– " + nm;
   const a = $("#tAv"); a.style.backgroundImage = av ? `url('${av}')` : ""; a.textContent = av ? "" : nm.trim().charAt(0);
   document.querySelectorAll("#dots i").forEach((d, i) => d.classList.toggle("on", i === tIdx));
 }
-function go(n){tIdx = (n + CONFIG.testimonials.length) % CONFIG.testimonials.length; renderT(); clearInterval(timer); timer = setInterval(() => go(tIdx + 1), 6000)}
+function go(n){if (!CONFIG.testimonials.length) return; tIdx = (n + CONFIG.testimonials.length) % CONFIG.testimonials.length; renderT(); clearInterval(timer); timer = setInterval(() => go(tIdx + 1), 6000)}
 
 /* ============ form → WhatsApp ============ */
 $("#leadForm").addEventListener("submit", e => {
