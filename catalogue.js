@@ -1,14 +1,14 @@
 /* "View Our Products" catalogue: search, filter, details, enquiry (Supabase optional) + WhatsApp. */
 (function(){
 const C=window.SA_CATALOGUE,root=document.getElementById("catalogue");if(!C||!root)return;
-const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const cat=id=>C.cats.find(c=>c.id===id);let flt="all",q="",ov,box,last;
-root.innerHTML=`<div class="wrap"><a class="ct-back" href="#home">← Back to Home</a>
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cat=id=>C.cats.find(c=>c.id===id);let flt="all",q="",ov,box,last,G,F,built=0,tm;
+function build(){root.innerHTML=`<div class="wrap"><a class="ct-back" href="#home">← Back to Home</a>
 <div class="ct-head"><h2>Explore Our Insurance Products</h2><p>Find the Right Insurance Protection for Every Stage of Your Life.</p></div>
 <div class="ct-tools"><input id="ctQ" type="search" placeholder="Search insurance products…" aria-label="Search insurance products"></div>
 <div class="ct-chips" id="ctF"></div><div class="ct-grid" id="ctG" aria-live="polite"></div>
 <p class="ct-note">Information here is indicative and general. Product types were checked against insurer and regulator sources; availability, eligibility, premiums and benefits are confirmed only in the insurer's policy documents and a written quotation. No returns or claims are guaranteed.</p></div>`;
-const G=root.querySelector("#ctG"),F=root.querySelector("#ctF");
+G=root.querySelector("#ctG");F=root.querySelector("#ctF");built=1;draw()}
 const ins=k=>k.map(x=>{const[n,u]=C.insurers[x];return u?`<a href="${u}" target="_blank" rel="noopener noreferrer">${esc(n)} ↗</a>`:`<span class="in">${esc(n)}</span>`}).join("");
 function draw(){
   F.innerHTML=[["all","All Products"],...C.cats.map(c=>[c.id,c.name])].map(([i,n])=>`<button type="button" data-f="${i}" class="${flt===i?"on":""}">${esc(n)}</button>`).join("");
@@ -75,7 +75,7 @@ root.addEventListener("click",e=>{const t=e.target;last=t.closest("button")||las
   const f=t.closest("[data-f]");if(f){flt=f.dataset.f;return draw()}
   const en=t.closest("[data-e]");if(en)return enquiry(en.dataset.e,0);
   const d=t.closest("[data-d]");if(d)return details(d.dataset.d,d.dataset.s!=null?+d.dataset.s:undefined)});
-root.querySelector("#ctQ").addEventListener("input",e=>{q=e.target.value;draw()});
-function route(){const on=location.hash==="#catalogue";document.body.classList.toggle("cat-view",on);if(on)window.scrollTo(0,0)}
-addEventListener("hashchange",route);draw();route();
+root.addEventListener("input",e=>{if(e.target.id!=="ctQ")return;clearTimeout(tm);const v=e.target.value;tm=setTimeout(()=>{q=v;draw()},120)});
+function route(){const on=location.hash==="#catalogue";if(on&&!built)build();document.body.classList.toggle("cat-view",on);if(on){window.scrollTo(0,0);setTimeout(function(){window.scrollTo(0,0)},60)}}
+addEventListener("hashchange",route);route();(window.requestIdleCallback||setTimeout)(function(){if(!built)build()});
 })();
