@@ -4,7 +4,7 @@ const D=(()=>{try{if(/[?&]preview=1/.test(location.search)){const d=JSON.parse(l
 if(!D)return;
 const L={en:{pick:"Choose your insurance",cat:"Insurance category",prod:"Select a product",none:"No plans are open for online enquiry right now. Please chat with us directly.",chatDirect:"Chat on WhatsApp",next:"Next",back:"Previous",step:"Step",of:"of",contact:"Your contact details",rev:"Review your details",edit:"Edit",cust:"Customer details",enq:"Enquiry details",comm:"Additional Comments (optional)",consent:"I agree that Sivaani Associate may use these details to contact me about my insurance enquiry.",priv:"We collect only what is needed for your enquiry. Please do not share Aadhaar, PAN, bank details, passwords or medical documents here. Your details are not stored on this website; they go only into the WhatsApp message you choose to send.",send:"Send Enquiry on WhatsApp",req:"This field is required.",mob:"Enter a valid 10-digit mobile number.",dob:"Enter a valid date of birth.",reg:"Enter a valid registration number.",rng:"Enter a valid value.",email:"Enter a valid email address.",rage:"Retirement age must be higher than current age.",cons:"Please tick the consent box to continue.",sent:"WhatsApp should now be open with your message ready. Please press Send in WhatsApp – your enquiry is delivered only once you send it.",again:"WhatsApp didn't open? Tap here.",name:"Full Name",mobile:"Mobile Number",city:"City",pickHint:"Please choose a category and a product.",opt:"(optional)",close:"Close"},
 ta:{pick:"காப்பீட்டைத் தேர்வு செய்யுங்கள்",cat:"காப்பீட்டு வகை",prod:"திட்டத்தைத் தேர்வு செய்யவும்",none:"தற்போது ஆன்லைன் விசாரணைக்கு திட்டங்கள் இல்லை. நேரடியாக வாட்ஸ்அப்பில் பேசுங்கள்.",chatDirect:"வாட்ஸ்அப்பில் பேசுங்கள்",next:"அடுத்து",back:"முந்தைய",step:"படி",of:"/",contact:"உங்கள் தொடர்பு விவரங்கள்",rev:"விவரங்களைச் சரிபார்க்கவும்",edit:"திருத்து",cust:"வாடிக்கையாளர் விவரங்கள்",enq:"விசாரணை விவரங்கள்",comm:"கூடுதல் குறிப்புகள் (விருப்பம்)",consent:"என் காப்பீட்டு விசாரணை தொடர்பாக என்னைத் தொடர்பு கொள்ள சிவானி அசோசியேட் இந்த விவரங்களைப் பயன்படுத்த சம்மதிக்கிறேன்.",priv:"விசாரணைக்குத் தேவையான விவரங்களை மட்டுமே கேட்கிறோம். ஆதார், பான், வங்கி விவரங்கள், கடவுச்சொற்கள், மருத்துவ ஆவணங்களை இங்கே பகிர வேண்டாம். உங்கள் விவரங்கள் இந்த இணையதளத்தில் சேமிக்கப்படாது; நீங்கள் அனுப்பும் வாட்ஸ்அப் செய்தியில் மட்டுமே செல்லும்.",send:"வாட்ஸ்அப்பில் விசாரணை அனுப்புங்கள்",req:"இது அவசியம்.",mob:"சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்.",dob:"சரியான பிறந்த தேதியை உள்ளிடவும்.",reg:"சரியான பதிவு எண்ணை உள்ளிடவும்.",rng:"சரியான மதிப்பை உள்ளிடவும்.",email:"சரியான மின்னஞ்சல் முகவரியை உள்ளிடவும்.",rage:"ஓய்வு வயது தற்போதைய வயதை விட அதிகமாக இருக்க வேண்டும்.",cons:"தொடர சம்மதப் பெட்டியைத் தேர்வு செய்யவும்.",sent:"உங்கள் செய்தியுடன் வாட்ஸ்அப் திறந்திருக்க வேண்டும். வாட்ஸ்அப்பில் Send அழுத்துங்கள் – நீங்கள் அனுப்பிய பின்பே விசாரணை சென்றடையும்.",again:"வாட்ஸ்அப் திறக்கவில்லையா? இங்கே தட்டவும்.",name:"முழு பெயர்",mobile:"மொபைல் எண்",city:"ஊர்",pickHint:"வகை மற்றும் திட்டத்தைத் தேர்வு செய்யவும்.",opt:"(விருப்பம்)",close:"மூடு"}};
-const T=k=>(L[lang]||L.en)[k]||L.en[k], esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const T=k=>(L[lang]||L.en)[k]||L.en[k], esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const active=()=>D.products.filter(p=>p.active!==false);
 const cname=id=>{const c=CONFIG.products.find(p=>p.id===id);return c?c[lang]:id};
 const cnameEn=id=>{const c=CONFIG.products.find(p=>p.id===id);return c?c.en:id};
@@ -26,7 +26,7 @@ function readInputs(){
   box.querySelectorAll(".rg").forEach(g=>{if(!g.querySelector(":checked"))delete S.vals[g.dataset.g]});
 }
 function fieldHtml(f){
-  const v=S.vals[f.k]??"",id="q_"+f.k,lb=`${esc(f.l)}${f.r?" *":""}`;let c;
+  const v=S.vals[f.k]==null?"":S.vals[f.k],id="q_"+f.k,lb=`${esc(f.l)}${f.r?" *":""}`;let c;
   if(f.t==="radio")return `<div class="q radio" data-w="${f.w?f.w.k+"|"+[].concat(f.w.v).join(","):""}"><span class="lb">${lb}</span><div class="rg" data-g="${f.k}">${f.o.map(o=>`<label><input type="radio" name="${f.k}" data-k="${f.k}" value="${esc(o)}"${v===o?" checked":""}>${esc(o)}</label>`).join("")}</div><div class="qe"></div></div>`;
   if(f.t==="select")c=`<select id="${id}" data-k="${f.k}"><option value="">—</option>${(f.o||[]).map(o=>`<option${v===o?" selected":""}>${esc(o)}</option>`).join("")}</select>`;
   else if(f.t==="textarea")c=`<textarea id="${id}" data-k="${f.k}" maxlength="400" placeholder="${esc(f.ph||"")}">${esc(v)}</textarea>`;
@@ -63,7 +63,7 @@ function buildMessage(){
 function waUrl(){return `https://wa.me/${number()}?text=${encodeURIComponent(buildMessage())}`}
 
 function render(){
-  const n=S.steps.length,i=S.i,s=S.cur=S.steps[i],last=i===n-1;
+  const n=S.steps.length,i=S.i,s=S.cur=S.steps[i],last=i===n-1&&n>1;
   let body="";
   if(s.id==="pick"){
     const cats=CONFIG.products.filter(c=>active().some(p=>p.cat===c.id)),prods=active().filter(p=>p.cat===S.cat);
