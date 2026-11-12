@@ -1,0 +1,6 @@
+/* Responsive + performance fixes (loaded last). */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,.btn,.pc,.chip{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.trio,.footer{content-visibility:auto;contain-intrinsic-size:auto 320px}
+@media(max-width:380px){.topbar .wrap,.tb-left,.tb-right{gap:8px}.social{gap:4px}.hero-in>*,.card-form{min-width:0;max-width:100%}}
+@media(max-width:768px){.hero-fx{display:none}.f input,.f select{font-size:16px}}
