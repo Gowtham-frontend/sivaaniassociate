@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Enquiry Admin – Sivaani Associate</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#08152C;--navy2:#0D2246;--gold:linear-gradient(135deg,#F7D060,#D49B27)}
+*{box-sizing:border-box}body{font-family:Poppins,sans-serif;margin:0;background:#F4F7FB;color:var(--navy);font-size:14px}
+header{background:var(--navy2);color:#fff;padding:14px 20px}header b{font-size:18px}
+main{max-width:980px;margin:18px auto;padding:0 14px}
+.card{background:#fff;border-radius:14px;box-shadow:0 6px 20px rgba(8,21,44,.1);padding:16px;margin-bottom:16px}
+.note{background:#fff7e0;border-radius:10px;padding:10px 14px;font-size:13px;margin-bottom:16px}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid #e7ecf4;font-size:13px}
+input,select,textarea{font:inherit;font-size:13px;padding:8px 10px;border:1px solid #cfd8e6;border-radius:8px;width:100%}
+label{font-size:12px;font-weight:600;display:block;margin:8px 0 3px}
+button{font:inherit;font-weight:600;border:0;border-radius:999px;padding:8px 16px;cursor:pointer;background:#e7ecf4;color:var(--navy)}
+button.g{background:var(--gold)}button.d{background:#fde8e6;color:#c0392b}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}.row>*{flex:1;min-width:130px}.row>button{flex:0 0 auto}
+.off{opacity:.5}dialog{border:0;border-radius:14px;max-width:720px;width:94%;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.ef{border:1px solid #e7ecf4;border-radius:10px;padding:8px;margin:6px 0}
+</style></head><body>
+<header><b>Enquiry Admin</b> · products &amp; enquiry forms</header>
+<main>
+<div class="note"><b>How this works:</b> this site has no server or database, so this page edits a draft in <i>your browser only</i>. Use <b>Preview on site</b> to test, then <b>Download enquiry-data.js</b> and replace that file on your hosting. Changes go live for customers only after you upload the file. Keep this page private (do not link it publicly).</div>
+<div class="card"><label for="wa">WhatsApp Business number (digits with country code, e.g. 917373790009). Leave blank to use the number in script.js.</label>
+<div class="row"><input id="wa" inputmode="numeric" placeholder="blank = site default"><button class="g" id="saveWa">Apply</button></div></div>
+<div class="card"><div class="row"><b style="flex:1">Products</b><button class="g" id="add">+ Add product</button><button id="prev">Preview on site</button><button class="g" id="dl">Download enquiry-data.js</button><button class="d" id="reset">Discard draft</button></div>
+<table><thead><tr><th>Product</th><th>Category</th><th>Form</th><th>Active</th><th></th></tr></thead><tbody id="tb"></tbody></table></div>
+</main>
+<dialog id="dlg"><form method="dialog" id="fm" style="margin:0"><b id="dt"></b>
+<label>Product name (English)</label><input id="pn" required maxlength="80"><label>Name in Tamil (optional)</label><input id="pt" maxlength="80">
+<div class="row"><div><label>Category</label><select id="pc"></select></div><div><label>Base form (fields come from this)</label><select id="pf"></select></div></div>
+<label>Extra enquiry fields for this product (added as a last step)</label><div id="ex"></div><button type="button" id="addf">+ Add field</button>
+<div class="row" style="margin-top:14px;justify-content:flex-end"><button type="button" id="cx">Cancel</button><button class="g" type="submit">Save product</button></div></form></dialog>
+<script src="enquiry-data.js"></script>
+<script>
+const KEY="sa_enq_draft";let d;
+try{d=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+if(!d||!d.products)d=JSON.parse(JSON.stringify(window.SA_ENQUIRY));
+const $=s=>document.querySelector(s),slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(d))}catch(e){alert("Could not save draft in this browser.")}};
+let ed=null,fields=[];
+function list(){$("#wa").value=d.whatsapp||"";$("#tb").innerHTML=d.products.map((p,i)=>`<tr class="${p.active===false?"off":""}"><td>${esc(p.name)}</td><td>${esc(d.cats[p.cat]||p.cat)}</td><td>${esc(p.form)}${p.extra&&p.extra.length?" +"+p.extra.length:""}</td><td><input type="checkbox" data-t="${i}" ${p.active===false?"":"checked"} style="width:auto"></td><td><button data-e="${i}">Edit</button></td></tr>`).join("")}
+function fl(){$("#ex").innerHTML=fields.map((f,i)=>`<div class="ef"><div class="row"><div><label>Label</label><input data-i="${i}" data-a="l" value="${esc(f.l||"")}" required></div><div><label>Type</label><select data-i="${i}" data-a="t">${["text","number","date","tel","select","radio","textarea"].map(t=>`<option${f.t===t?" selected":""}>${t}</option>`).join("")}</select></div><div><label>Options (comma-separated, for select/radio)</label><input data-i="${i}" data-a="o" value="${esc((f.o||[]).join(", "))}"></div><div style="flex:0 0 90px"><label>Required</label><input type="checkbox" data-i="${i}" data-a="r" ${f.r?"checked":""} style="width:auto"></div><button type="button" class="d" data-x="${i}">✕</button></div></div>`).join("")}
+function openEd(i){ed=i;const p=i==null?{name:"",ta:"",cat:Object.keys(d.cats)[0],form:Object.keys(d.forms)[0],extra:[]}:d.products[i];
+ $("#dt").textContent=i==null?"Add product":"Edit product";$("#pn").value=p.name;$("#pt").value=p.ta||"";
+ $("#pc").innerHTML=Object.entries(d.cats).map(([k,v])=>`<option value="${k}"${p.cat===k?" selected":""}>${esc(v)}</option>`).join("");
+ $("#pf").innerHTML=Object.keys(d.forms).map(k=>`<option${p.form===k?" selected":""}>${k}</option>`).join("");
+ fields=JSON.parse(JSON.stringify(p.extra||[]));fl();$("#dlg").showModal()}
+document.addEventListener("click",e=>{const t=e.target;
+ if(t.dataset.e!=null)openEd(+t.dataset.e);
+ if(t.dataset.x!=null){fields.splice(+t.dataset.x,1);fl()}});
+document.addEventListener("change",e=>{const t=e.target;
+ if(t.dataset.t!=null){d.products[+t.dataset.t].active=t.checked;save();list()}
+ if(t.dataset.i!=null){const f=fields[+t.dataset.i],a=t.dataset.a;f[a]=a==="r"?t.checked:a==="o"?t.value.split(",").map(s=>s.trim()).filter(Boolean):t.value}});
+$("#add").onclick=()=>openEd(null);$("#addf").onclick=()=>{fields.push({l:"",t:"text",r:false,o:[]});fl()};$("#cx").onclick=()=>$("#dlg").close();
+$("#fm").onsubmit=e=>{const name=$("#pn").value.trim(),cat=$("#pc").value;
+ if(d.products.some((p,i)=>i!==ed&&p.cat===cat&&p.name.toLowerCase()===name.toLowerCase())){e.preventDefault();alert("A product with this name already exists in this category.");return}
+ const bad=fields.find(f=>(f.t==="select"||f.t==="radio")&&!(f.o||[]).length);if(bad){e.preventDefault();alert("Add options for: "+bad.l);return}
+ const p={id:ed==null?slug(name)+"-"+Date.now().toString(36).slice(-3):d.products[ed].id,cat,name,ta:$("#pt").value.trim(),active:ed==null?true:d.products[ed].active!==false,form:$("#pf").value,extra:fields.map(f=>({l:f.l,t:f.t,r:!!f.r,o:f.o||[]}))};
+ ed==null?d.products.push(p):d.products[ed]=p;save();list()};
+$("#saveWa").onclick=()=>{const v=$("#wa").value.replace(/\D/g,"");if(v&&(v.length<11||v.length>14)){alert("Enter digits with country code, e.g. 917373790009.");return}d.whatsapp=v;save();list();alert(v?"WhatsApp number applied to the draft.":"Using the site default number.")};
+$("#prev").onclick=()=>{save();open("index.html?preview=1","_blank")};
+$("#reset").onclick=()=>{if(confirm("Discard draft and go back to the deployed file?")){localStorage.removeItem(KEY);location.reload()}};
+$("#dl").onclick=()=>{const b=new Blob(['/* Enquiry products & forms. Edit via admin.html, then replace this file. */\nwindow.SA_ENQUIRY = '+JSON.stringify(d,null,1)+';\n'],{type:"text/javascript"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="enquiry-data.js";a.click()};
+list();
+</script></body></html>
