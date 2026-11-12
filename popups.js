@@ -20,7 +20,7 @@ const U={en:{close:"Close",tTitle:"Customer Reviews",tSub:"What our customers sa
     cTitle:"Contact Us",cSub:"We're happy to help",phone:"Phone",mail:"Email",addr:"Office",wa:"Chat on WhatsApp",form:"Send us an enquiry",
     name:"Full Name",mob:"Mobile Number",em:"Email Address",subj:"Subject",msg:"Message",send:"Submit Enquiry",sending:"Submitting…",retry:"Try Again",
     eName:"Enter your full name.",eMob:"Enter a valid 10-digit mobile number.",eMail:"Enter a valid email address.",eSubj:"Enter a subject.",eMsg:"Enter your message.",
-    priv:"We use these details only to follow up on your enquiry. Please do not share Aadhaar, PAN, bank details or passwords.",
+    priv:"We use these details only to follow up on your enquiry. Please do not share Aadhaar, PAN, bank details or passwords. <a href='privacy.html' target='_blank' rel='noopener'>Privacy Notice</a>",
     okDb:"✅ Thank you! Your enquiry has been recorded. Our advisor will contact you. For a faster reply you can also message us on WhatsApp.",
     okWa:"Your enquiry is ready. This website is not connected to a database, so it has <b>not</b> been sent yet – please send it on WhatsApp. It reaches our advisor only after you press Send in WhatsApp.",
     bad:"We couldn't save your enquiry online just now. Please send it on WhatsApp instead – it reaches us only after you press Send there.",sendWa:"Send Enquiry on WhatsApp"},
@@ -28,7 +28,7 @@ const U={en:{close:"Close",tTitle:"Customer Reviews",tSub:"What our customers sa
     cTitle:"தொடர்புக்கு",cSub:"உதவ மகிழ்ச்சி",phone:"தொலைபேசி",mail:"மின்னஞ்சல்",addr:"அலுவலகம்",wa:"வாட்ஸ்அப்பில் பேசுங்கள்",form:"உங்கள் விசாரணையை அனுப்புங்கள்",
     name:"முழு பெயர்",mob:"மொபைல் எண்",em:"மின்னஞ்சல் முகவரி",subj:"தலைப்பு",msg:"செய்தி",send:"விசாரணை அனுப்புங்கள்",sending:"அனுப்புகிறது…",retry:"மீண்டும் முயற்சிக்கவும்",
     eName:"உங்கள் முழு பெயரை உள்ளிடவும்.",eMob:"சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்.",eMail:"சரியான மின்னஞ்சல் முகவரியை உள்ளிடவும்.",eSubj:"தலைப்பை உள்ளிடவும்.",eMsg:"உங்கள் செய்தியை உள்ளிடவும்.",
-    priv:"உங்கள் விசாரணைக்குத் தொடர்புகொள்ள மட்டுமே இந்த விவரங்களைப் பயன்படுத்துவோம். ஆதார், பான், வங்கி விவரங்கள், கடவுச்சொற்களை பகிர வேண்டாம்.",
+    priv:"உங்கள் விசாரணைக்குத் தொடர்புகொள்ள மட்டுமே இந்த விவரங்களைப் பயன்படுத்துவோம். ஆதார், பான், வங்கி விவரங்கள், கடவுச்சொற்களை பகிர வேண்டாம். <a href='privacy.html' target='_blank' rel='noopener'>தனியுரிமை அறிவிப்பு</a>",
     okDb:"✅ நன்றி! உங்கள் விசாரணை பதிவு செய்யப்பட்டது. எங்கள் ஆலோசகர் உங்களைத் தொடர்பு கொள்வார். விரைவான பதிலுக்கு வாட்ஸ்அப்பிலும் தொடர்பு கொள்ளலாம்.",
     okWa:"உங்கள் விசாரணை தயாராக உள்ளது. இந்த இணையதளம் தரவுத்தளத்துடன் இணைக்கப்படவில்லை, எனவே இது இன்னும் <b>அனுப்பப்படவில்லை</b> – வாட்ஸ்அப்பில் அனுப்பவும். வாட்ஸ்அப்பில் Send அழுத்திய பின்பே எங்களை வந்தடையும்.",
     bad:"உங்கள் விசாரணையை இப்போது ஆன்லைனில் சேமிக்க முடியவில்லை. தயவுசெய்து வாட்ஸ்அப்பில் அனுப்பவும் – அங்கே Send அழுத்திய பின்பே எங்களை வந்தடையும்.",sendWa:"வாட்ஸ்அப்பில் விசாரணை அனுப்புங்கள்"}};
