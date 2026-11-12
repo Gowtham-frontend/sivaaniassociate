@@ -1,13 +1,13 @@
 /* Insurance enquiry modal – uses existing site tokens (--navy, --gold, --r) */
-.eq-ov{position:fixed;inset:0;z-index:1000;background:rgba(8,21,44,.65);display:none;align-items:center;justify-content:center;padding:14px;backdrop-filter:blur(3px)}
+.eq-ov{position:fixed;inset:0;z-index:1000;background:rgba(8,21,44,.7);display:none;align-items:center;justify-content:center;padding:14px}
 .eq-ov.open{display:flex}
-.eq{background:#fff;color:var(--navy);width:100%;max-width:560px;max-height:94vh;border-radius:var(--r);box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 0 2px var(--gold1);display:flex;flex-direction:column;overflow:hidden}
+.eq{background:#fff;color:var(--navy);width:100%;max-width:560px;max-height:94vh;max-height:94dvh;border-radius:var(--r);box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 0 2px var(--gold1);display:flex;flex-direction:column;overflow:hidden}
 .eq-h{background:var(--navy2);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:12px}
 .eq-h b{font-size:17px;flex:1}.eq-h small{display:block;font-weight:400;opacity:.85;font-size:12px}
-.eq-x{background:none;border:0;color:#fff;font-size:26px;line-height:1;cursor:pointer;padding:0 4px}
+.eq-x{background:none;border:0;color:#fff;font-size:28px;line-height:1;cursor:pointer;min-width:44px;min-height:44px;margin:-8px -10px -8px 0}
 .eq-bar{height:5px;background:#e7ecf4}.eq-bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .35s}
 .eq-steps{font-size:12px;color:#5b6b86;padding:10px 18px 0;font-weight:500}
-.eq-b{padding:14px 18px;overflow-y:auto;background:linear-gradient(#fff,var(--soft));flex:1}
+.eq-b{padding:14px 18px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:linear-gradient(#fff,var(--soft));flex:1}
 .eq-b h3{font-size:16px;margin-bottom:10px}
 .eq-g{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
 .q{display:flex;flex-direction:column;gap:4px;min-width:0}.q.full,.q.radio,.q.textarea{grid-column:1/-1}
@@ -24,7 +24,7 @@
 .chip{border:1px solid #dde4ee;background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer;color:var(--navy)}
 .chip.on{background:var(--navy2);color:#fff;border-color:var(--navy2)}
 .chips.pr .chip{border-radius:12px;text-align:left}
-.eq-f{display:flex;gap:10px;padding:12px 18px;border-top:1px solid #e7ecf4;background:#fff}
+.eq-f{display:flex;gap:10px;padding:12px 18px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid #e7ecf4;background:#fff}
 .eq-f .btn{flex:1;border:0;cursor:pointer;font-family:inherit}
 .eq-f .btn.ghost{background:#eef2f8;color:var(--navy);flex:0 0 auto}
 .btn.wa{background:#25D366;color:#fff;box-shadow:0 4px 14px rgba(37,211,102,.4)}
@@ -38,4 +38,4 @@
 .priv{font-size:12px;color:#5b6b86;background:#fff7e0;border-radius:10px;padding:8px 12px}
 .sent{background:#e9f9ef;border:1px solid #b6e8c8;border-radius:10px;padding:10px 12px;font-size:13px;margin-top:10px}
 .sent a{color:#0a7d3c;font-weight:600;text-decoration:underline}
-@media(max-width:520px){.eq-g{grid-template-columns:1fr}.eq-ov{padding:0;align-items:flex-end}.eq{max-height:96vh;border-radius:var(--r) var(--r) 0 0}}
+@media(max-width:520px){.q input:not([type=radio]):not([type=checkbox]),.q select,.q textarea{font-size:16px}.chip,.rg label{min-height:40px}.eq-g{grid-template-columns:1fr}.eq{max-height:96vh;max-height:96dvh}.eq-ov{padding:0;align-items:flex-end}.eq{max-height:96vh;border-radius:var(--r) var(--r) 0 0}}
