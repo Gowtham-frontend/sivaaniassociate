@@ -71,6 +71,7 @@ function buildStatic(){
     `<a href="${CONFIG.social.facebook}" aria-label="Facebook">${icon("M14 8V6a1 1 0 011-1h2V1h-3a5 5 0 00-5 5v2H6v4h3v11h4V12h3l1-4z")}</a>
      <a href="${CONFIG.social.youtube}" aria-label="YouTube">${icon("M22 8a3 3 0 00-2-2c-2-.5-8-.5-8-.5s-6 0-8 .5A3 3 0 002 8a31 31 0 000 8 3 3 0 002 2c2 .5 8 .5 8 .5s6 0 8-.5a3 3 0 002-2 31 31 0 000-8zM10 15V9l5 3z")}</a>
      <a href="${CONFIG.social.linkedin}" aria-label="LinkedIn">${icon("M4 9h4v12H4zM6 3a2 2 0 110 4 2 2 0 010-4zm4 6h4v2c.7-1.200 2-2.200 4-2.200 4 0 4 3 4 5.200V21h-4v-6c0-1.500-.5-2.500-2-2.500S14 13.500 14 15v6h-4z")}</a>`;
+  const ns = document.createElement("div"); ns.className = "social nav-social"; ns.innerHTML = $("#social").innerHTML; $("#nav").appendChild(ns);
   $("#partners").innerHTML = CONFIG.partners.map(p => p.logo
     ? `<img src="${p.logo}" alt="${p.name}">` : `<span style="color:${p.color}">${p.name}</span>`).join("");
   $("#cards").innerHTML = CONFIG.products.map(p =>
@@ -88,7 +89,7 @@ function applyLang(l){
   lang = l; localStorage.setItem("sa_lang", l);
   document.documentElement.lang = l === "ta" ? "ta" : "en"; document.body.classList.toggle("ta", l === "ta");
   document.querySelectorAll("[data-i18n]").forEach(el => el.innerHTML = t(el.dataset.i18n));
-  document.querySelectorAll("[data-i18n-ph]").forEach(el => el.placeholder = t(el.dataset.i18nPh));
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = t(el.dataset.i18nPh); el.setAttribute("aria-label", el.placeholder.replace(/\s*\*$/, "")); });
   document.querySelectorAll("[data-lang]").forEach(b => b.classList.toggle("on", b.dataset.lang === l));
   document.querySelectorAll("[data-p]").forEach(el => el.textContent = CONFIG.products.find(p => p.id === el.dataset.p)[l]);
   $("#ddProducts").innerHTML = CONFIG.products.map(p => `<li><a href="#products">${p[l]}</a></li>`).join("");
@@ -96,6 +97,8 @@ function applyLang(l){
   $("#fType").innerHTML = `<option value="">${t("ph_type")}</option>` + CONFIG.products.map(p => `<option value="${p.id}">${p[l]}</option>`).join("");
   $("#fTime").innerHTML = `<option value="">${t("ph_time")}</option>` + CONFIG.times[l].map((x, i) => `<option value="${i}">${x}</option>`).join("");
   $("#fType").value = keepT; $("#fTime").value = keepM;
+  $("#fType").setAttribute("aria-label", t("ph_type")); $("#fTime").setAttribute("aria-label", t("ph_time"));
+  const bg = $("#burger"); if (bg && !$("#nav").classList.contains("open")) bg.setAttribute("aria-label", l === "ta" ? "மெனு" : "Menu");
   const loc = CONFIG.location[l]; $("#tbLoc span").textContent = $("#fLoc").textContent = loc;
   $("#ctaWa").href = wa(t("msg")); renderT();
 }
@@ -122,8 +125,29 @@ $("#leadForm").addEventListener("submit", e => {
 });
 
 /* ============ init ============ */
-$("#burger").onclick = () => { const o = $("#nav").classList.toggle("open"); $("#burger").setAttribute("aria-expanded", o) };
-$("#nav").addEventListener("click", e => { if (e.target.closest("a")) $("#nav").classList.remove("open") });
+/* mobile menu: accessible toggle, backdrop, Esc to close, focus kept inside while open, scroll lock */
+(function mobileMenu(){
+  const burger = $("#burger"), nav = $("#nav"), header = document.querySelector(".header");
+  const back = document.createElement("div"); back.className = "nav-backdrop"; back.setAttribute("aria-hidden", "true"); header.appendChild(back);
+  const wide = window.matchMedia("(min-width:1101px)");
+  function setMenu(o, refocus){
+    nav.classList.toggle("open", o); burger.setAttribute("aria-expanded", o); document.body.classList.toggle("menu-open", o);
+    burger.setAttribute("aria-label", (lang === "ta" ? (o ? "மெனுவை மூடு" : "மெனு") : (o ? "Close menu" : "Menu")));
+    if (o) { setTimeout(() => { const a = nav.querySelector("a"); a && a.focus({preventScroll:true}); }, 60); } else if (refocus) burger.focus({preventScroll:true});
+  }
+  burger.onclick = () => setMenu(!nav.classList.contains("open"), true);
+  back.onclick = () => setMenu(false, true);
+  nav.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("keydown", e => {
+    if (!nav.classList.contains("open")) return;
+    if (e.key === "Escape") { setMenu(false, true); return; }
+    if (e.key === "Tab") { /* manual cycle: burger -> menu links -> burger (burger sits after the nav in the DOM) */
+      const items = [burger, ...nav.querySelectorAll("a")], i = items.indexOf(document.activeElement);
+      e.preventDefault(); items[(i + (e.shiftKey ? -1 : 1) + items.length) % items.length].focus();
+    }
+  });
+  (wide.addEventListener ? wide.addEventListener("change", () => wide.matches && setMenu(false)) : wide.addListener(() => wide.matches && setMenu(false)));
+})();
 document.querySelectorAll("[data-lang]").forEach(b => b.onclick = () => applyLang(b.dataset.lang));
 $("#prev").onclick = () => go(tIdx - 1); $("#next").onclick = () => go(tIdx + 1);
 $("#dots").onclick = e => { if (e.target.dataset.i) go(+e.target.dataset.i) };
