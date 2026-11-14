@@ -32,7 +32,7 @@ const ul=a=>`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
 function details(id,si){
   const c=cat(id);
   modal(`${head(c.name)}<div class="eq-b dt"><p>${esc(c.d)}</p>
-  <h4>Available product types</h4>${c.subs.map((x,i)=>`<div class="sp${i===si?" on":""}"><button data-ed="${id}" data-es="${i}">Enquiry Now</button><b>${esc(x.n)}</b><p>${esc(x.d)}</p><span class="in" style="color:#4a5876">Offered by:</span> ${ins(x.i)}</div>`).join("")}
+  <h4>Available product types</h4>${c.subs.map((x,i)=>`<div class="sp${i===si?" on":""}"><button data-ed="${id}" data-es="${i}">Enquiry Now</button><b>${esc(x.n)}</b><p>${esc(x.d)}</p>${x.i&&x.i.length?`<span class="in" style="color:#4a5876">Offered by:</span> ${ins(x.i)}`:""}</div>`).join("")}
   <h4>Key features</h4>${ul(c.feat)}<h4>Main benefits</h4>${ul(c.ben)}<h4>Eligibility</h4><p>${esc(c.elig)}</p><h4>Important exclusions and limitations</h4>${ul(c.excl)}
   <p class="ct-note" style="margin-top:14px">Indicative information only – not a quotation. Confirm all details in the insurer's policy wording.</p></div>
   <div class="eq-f"><button class="btn gold" data-ed="${id}" data-es="${si||0}">Enquiry Now →</button></div>`);

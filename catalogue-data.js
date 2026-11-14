@@ -96,6 +96,13 @@ window.SA_CATALOGUE = {
     ben:["Disciplined long-term saving with life cover, as per the policy"],
     elig:"Varies by plan.", excl:["Charges, lock-ins and plan conditions apply – read the policy wording"],
     subs:[{n:"Endowment Savings Plans",d:"Savings plans with life cover and a maturity benefit as stated in the plan.",i:["lic"]},
-          {n:"ULIP (Market-linked)",d:"Investment in market-linked funds with life cover; returns are not guaranteed.",i:["lic"]}]}
+          {n:"ULIP (Market-linked)",d:"Investment in market-linked funds with life cover; returns are not guaranteed.",i:["lic"]}]},
+  { id:"gift", icon:"🎁", name:"Gift Plans", d:"A Gift That Lasts a Lifetime. Give your loved ones a meaningful financial gift that they can receive year after year. You can choose special occasions such as birthdays, wedding anniversaries, or other memorable dates to make the gift even more special.",
+    feat:["Choose a special occasion such as a birthday, wedding anniversary or another memorable date","The structure of the gift depends on the insurance product you select"],
+    ben:["A meaningful, long-term financial gift for your loved ones, as per the policy terms"],
+    elig:"Actual benefits and eligibility depend on the selected insurance product and its policy terms.", excl:["Benefits, premiums, payout dates and conditions are set by the selected policy – read the policy wording"],
+    subs:[{n:"Yearly gift for loved ones",d:"Gifting your loved ones with yearly financial benefits.",i:[]},
+          {n:"Birthday and wedding anniversary gift",d:"Creating a memorable financial gift for birthdays and wedding anniversaries.",i:[]},
+          {n:"Gift for grandchildren and future generations",d:"Planning a long-term gift for grandchildren and future generations.",i:[]}]}
   ]
 };
