@@ -32,7 +32,7 @@ window.SA_TRUST = {
   },
 
   /* Used by privacy.html (the main site reads CONFIG in script.js). Keep in sync with CONFIG. */
-  contact: { phone: "+91 94437 04626", email: "info@sivaaniassociate.com", whatsapp: "917373790009" },
+  contact: { phone: "+91 73737 90009", email: "info@sivaaniassociate.com", whatsapp: "917373790009" },
 
   /* Set onlineRecord to true ONLY if the Supabase keys in catalogue-data.js are filled in (enquiries are then saved online). */
   privacy: { onlineRecord: false },

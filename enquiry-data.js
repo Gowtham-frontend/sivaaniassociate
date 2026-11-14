@@ -7,7 +7,10 @@ window.SA_ENQUIRY = {
   "child": "Child Plans",
   "retire": "Retirement Plans",
   "savings": "Savings & Investment",
-  "vehicle": "Vehicle Insurance"
+  "vehicle": "Vehicle Insurance",
+  "term": "Term Plans",
+  "business": "Business Insurance Plans",
+  "gift": "Gift Plans"
  },
  "forms": {
   "life": {
@@ -530,6 +533,46 @@ window.SA_ENQUIRY = {
      ]
     }
    ]
+  },
+  "business": {
+   "steps": [
+    {
+     "t": "Contact details",
+     "f": [
+      { "k": "name", "l": "Full Name", "t": "text", "r": true, "c": true, "max": 80 },
+      { "k": "mobile", "l": "Mobile Number", "t": "tel", "r": true, "c": true, "v": "mobile" },
+      { "k": "email", "l": "Email Address", "t": "email", "r": true, "c": true, "v": "email", "max": 100 }
+     ]
+    },
+    {
+     "t": "Business details",
+     "f": [
+      { "k": "bname", "l": "Business Name", "t": "text", "r": true, "max": 100 },
+      { "k": "btype", "l": "Type of Business", "t": "select", "r": true, "o": ["Shop / Retail", "Office / Services", "Manufacturing / Industry", "Trading / Warehouse", "Other"] },
+      { "k": "bcity", "l": "Business Location (City)", "t": "text", "r": true, "max": 60 },
+      { "k": "bneed", "l": "Cover You Are Looking For", "t": "select", "r": true, "o": ["Shop / property", "Stock / goods", "Machinery / equipment", "Liability", "Goods in transit", "Not sure – need guidance"] }
+     ]
+    }
+   ]
+  },
+  "gift": {
+   "steps": [
+    {
+     "t": "Contact details",
+     "f": [
+      { "k": "name", "l": "Full Name", "t": "text", "r": true, "c": true, "max": 80 },
+      { "k": "mobile", "l": "Mobile Number", "t": "tel", "r": true, "c": true, "v": "mobile" },
+      { "k": "email", "l": "Email Address", "t": "email", "r": true, "c": true, "v": "email", "max": 100 }
+     ]
+    },
+    {
+     "t": "Gift details",
+     "f": [
+      { "k": "gfor", "l": "Gift For", "t": "select", "r": true, "o": ["Spouse", "Child", "Parent", "Grandchild", "Other family member"] },
+      { "k": "gocc", "l": "Special Occasion", "t": "select", "r": true, "o": ["Birthday", "Wedding anniversary", "Other memorable date"] }
+     ]
+    }
+   ]
   }
  },
  "products": [
@@ -603,6 +646,33 @@ window.SA_ENQUIRY = {
    "ta": "வாகன காப்பீடு",
    "active": true,
    "form": "vehicle",
+   "extra": []
+  },
+  {
+   "id": "term-plan",
+   "cat": "term",
+   "name": "Term Plan",
+   "ta": "டேர்ம் திட்டம்",
+   "active": true,
+   "form": "life",
+   "extra": []
+  },
+  {
+   "id": "business-insurance-plan",
+   "cat": "business",
+   "name": "Business Insurance Plan",
+   "ta": "வணிக காப்பீட்டு திட்டம்",
+   "active": true,
+   "form": "business",
+   "extra": []
+  },
+  {
+   "id": "gift-plan",
+   "cat": "gift",
+   "name": "Gift Plan",
+   "ta": "பரிசு திட்டம்",
+   "active": true,
+   "form": "gift",
    "extra": []
   }
  ]

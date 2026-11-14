@@ -1,6 +1,6 @@
 /* ============ CONFIG – edit client assets here ============ */
 const CONFIG = {
-  phone: "+91 94437 04626",
+  phone: "+91 73737 90009",
   email: "info@sivaaniassociate.com",
   location: { en: "Erode, Tamil Nadu", ta: "ஈரோடு, தமிழ்நாடு" },
   whatsapp: "917373790009",               // digits only, with country code
@@ -9,19 +9,17 @@ const CONFIG = {
     hero: "",                              // e.g. "images/family.jpg"
     avatars: ["", "", ""]                  // reviewer photos
   },
-  partners: [                              // set logo:"images/x.png" to use official logos
-    { name: "TATA AIA", logo: "", color: "#0A4DA2" },
-    { name: "LIC", logo: "", color: "#E6A700" },
-    { name: "Star Health", logo: "", color: "#0B3B8C" },
-    { name: "Galaxy Health", logo: "", color: "#6A1B9A" }
-  ],
+  partners: [],                            // set logo:"images/x.png" to use official logos
   products: [                              // img: path to photo
     { id: "life", icon: "👨‍👩‍👧", img: "", en: "Life Insurance", ta: "ஆயுள் காப்பீடு" },
     { id: "health", icon: "🩺", img: "", en: "Health Insurance", ta: "மருத்துவ காப்பீடு" },
     { id: "child", icon: "🎒", img: "", en: "Child Plans", ta: "குழந்தை திட்டங்கள்" },
     { id: "retire", icon: "🌴", img: "", en: "Retirement Plans", ta: "ஓய்வூதிய திட்டங்கள்" },
     { id: "savings", icon: "🐷", img: "", en: "Savings & Investment", ta: "சேமிப்பு & முதலீடு" },
-    { id: "vehicle", icon: "🚗", img: "", en: "Vehicle Insurance", ta: "வாகன காப்பீடு" }
+    { id: "vehicle", icon: "🚗", img: "", en: "Vehicle Insurance", ta: "வாகன காப்பீடு" },
+    { id: "term", icon: "🛡️", img: "", en: "Term Plans", ta: "டேர்ம் திட்டங்கள்" },
+    { id: "business", icon: "🏢", img: "", en: "Business Insurance Plans", ta: "வணிக காப்பீட்டு திட்டங்கள்" },
+    { id: "gift", icon: "🎁", img: "", en: "Gift Plans", ta: "பரிசு திட்டங்கள்" }
   ],
   times: { en: ["Morning (9–12)", "Afternoon (12–4)", "Evening (4–8)"], ta: ["காலை (9–12)", "மதியம் (12–4)", "மாலை (4–8)"] },
   testimonials: [],                         // Add ONLY genuine reviews with the customer's written permission: { en:"…", ta:"…", name:"First name, Town", nameTa:"…" }. While empty, the site shows an honest "reviews will appear here" message.
@@ -29,7 +27,7 @@ const CONFIG = {
 
 /* ============ i18n ============ */
 const I18N = {
-  en: { tagline:"Your Trusted Insurance Partner", nav_home:"Home", nav_about:"About Us", nav_products:"Insurance Products", nav_career:"Career", nav_testi:"Testimonials", nav_contact:"Contact Us", dd_why:"Why Choose Us", dd_exp:"Our Experience", enquire:"Enquire Now",
+  en: { tagline:"Your Trusted Insurance Partner", htag:"Your Trusted Insurance Partner", nav_home:"Home", nav_about:"About Us", nav_products:"Insurance Products", nav_career:"Career", nav_testi:"Testimonials", nav_contact:"Contact Us", dd_why:"Why Choose Us", dd_exp:"Our Experience", enquire:"Enquire Now",
     h1a:"Your Family.<br>Your Future.", h1b:"Our Priority.", hsub:"உங்கள் குடும்பத்தின் எதிர்காலத்தை பாதுகாக்க சரியான Insurance வழிகாட்டுதல்.", explore:"Explore Insurance Plans",
     gh:"Get Expert Guidance", gs:"Find the Right Insurance Plan", chat:"Chat on WhatsApp", safe:"We ask only for what's needed",
     trusted:"Insurers We Guide You On", years:"Years Experience", sol:"Our Insurance Solutions",
@@ -39,7 +37,7 @@ const I18N = {
     ph_name:"Your Name *", ph_mobile:"Mobile Number *", ph_city:"Your City", ph_type:"Select Insurance Type", ph_time:"Preferred Time",
     e_name:"Please enter your name.", e_mobile:"Enter a valid 10-digit mobile number.", e_type:"Please select an insurance type.",
     msg:"Hello Sivaani Associate, I need insurance guidance." },
-  ta: { tagline:"உங்கள் நம்பகமான காப்பீட்டு துணை", nav_home:"முகப்பு", nav_about:"எங்களை பற்றி", nav_products:"காப்பீட்டு திட்டங்கள்", nav_career:"வேலைவாய்ப்பு", nav_testi:"வாடிக்கையாளர் கருத்துகள்", nav_contact:"தொடர்புக்கு", dd_why:"ஏன் எங்களை தேர்வு செய்ய வேண்டும்", dd_exp:"எங்கள் அனுபவம்", enquire:"விசாரிக்க",
+  ta: { tagline:"உங்கள் நம்பகமான காப்பீட்டு துணை", htag:"உங்கள் நம்பகமான காப்பீட்டு துணை", nav_home:"முகப்பு", nav_about:"எங்களை பற்றி", nav_products:"காப்பீட்டு திட்டங்கள்", nav_career:"வேலைவாய்ப்பு", nav_testi:"வாடிக்கையாளர் கருத்துகள்", nav_contact:"தொடர்புக்கு", dd_why:"ஏன் எங்களை தேர்வு செய்ய வேண்டும்", dd_exp:"எங்கள் அனுபவம்", enquire:"விசாரிக்க",
     h1a:"உங்கள் குடும்பம்.<br>உங்கள் எதிர்காலம்.", h1b:"எங்கள் முன்னுரிமை.", hsub:"உங்கள் குடும்பத்தின் எதிர்காலத்தை பாதுகாக்க சரியான காப்பீட்டு வழிகாட்டுதல்.", explore:"காப்பீட்டு திட்டங்களை பாருங்கள்",
     gh:"நிபுணர் ஆலோசனை பெறுங்கள்", gs:"சரியான காப்பீட்டு திட்டத்தை கண்டறியுங்கள்", chat:"வாட்ஸ்அப்பில் பேசுங்கள்", safe:"தேவையான விவரங்களை மட்டுமே கேட்கிறோம்",
     trusted:"நாங்கள் வழிகாட்டும் காப்பீட்டு நிறுவனங்கள்", years:"ஆண்டுகள் அனுபவம்", sol:"எங்கள் காப்பீட்டு தீர்வுகள்",
