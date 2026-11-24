@@ -1,0 +1,72 @@
+/* Homepage marketing messages: hero slide text + Life Insurance section. Loaded last; style.css is not modified.
+   Uses the existing tokens (--navy, --navy2, --gold, --gold1, --gold2, --soft, --r, --sh, --ease). */
+:root{--hs-hold:6000ms}
+
+/* ---------- hero: brand line becomes a compact strapline; the slide headline leads ---------- */
+.hero-text{min-width:0}
+body .hero-text h1,body.ta .hero-text h1{font-size:clamp(14px,1.35vw,19px);line-height:1.4;font-weight:700;letter-spacing:.01em;margin-bottom:4px}
+.hero-text h1 span,.hero-text h1 em{display:inline}
+.hero-text h1::before{width:48px;height:3px;margin-bottom:10px}
+.hero-text .sub{font-size:13px;font-weight:500;margin:0 0 16px;max-width:none;opacity:.92}
+.hc-explore{margin-top:18px}
+
+/* slide copy: all panels share one grid cell, so the box is always as tall as the longest message */
+.hs-copy{display:grid}
+.hc{grid-area:1/1;min-width:0;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility 0s linear .5s}
+.hc.is-on{opacity:1;visibility:visible;transition:opacity .5s ease,visibility 0s}
+.hc-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold1);margin-bottom:10px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+body.ta .hc-tag{letter-spacing:.04em;text-transform:none;font-size:13.5px}
+.hc h2{font-size:clamp(26px,3.2vw,46px);line-height:1.13;font-weight:800;margin-bottom:12px;color:#fff;text-shadow:0 4px 28px rgba(0,0,0,.55);overflow-wrap:break-word;text-wrap:balance}
+body.ta .hc h2{font-size:clamp(24px,2.7vw,38px);line-height:1.28}
+.hc-sub{font-size:clamp(15px,1.4vw,19px);font-weight:600;line-height:1.4;color:var(--gold1);margin-bottom:12px;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.hc-desc{font-size:clamp(14px,1.1vw,16px);line-height:1.65;max-width:560px;color:rgba(255,255,255,.94);margin-bottom:20px;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.hc-act{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
+.hc-more{background:none;color:#fff;font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:4px;min-height:44px;padding:0 4px;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.hc-more:hover{color:var(--gold1)}
+.hc-note{display:block;max-width:520px;margin-top:10px;font-size:11.5px;line-height:1.5;color:rgba(255,255,255,.82)}
+/* text entrance (runs each time a slide becomes active) */
+.hc.is-on>*{animation:rise .8s var(--ease) both}
+.hc.is-on>:nth-child(2){animation-delay:.08s}.hc.is-on>:nth-child(3){animation-delay:.16s}
+.hc.is-on>:nth-child(4){animation-delay:.24s}.hc.is-on>:nth-child(5){animation-delay:.32s}.hc.is-on>:nth-child(6){animation-delay:.4s}
+
+/* desktop: give the message column more room and a darker, wider readable overlay */
+@media(min-width:1101px){
+.hero-in{grid-template-columns:minmax(0,1.6fr) minmax(0,.55fr) 340px}
+.hero-shade{background:
+ linear-gradient(90deg,rgba(8,21,44,.94) 0%,rgba(8,21,44,.88) 28%,rgba(8,21,44,.70) 46%,rgba(8,21,44,.34) 60%,rgba(8,21,44,.16) 70%,rgba(8,21,44,.46) 84%,rgba(8,21,44,.84) 100%),
+ linear-gradient(180deg,rgba(8,21,44,.40) 0%,rgba(8,21,44,0) 28%,rgba(8,21,44,0) 66%,rgba(8,21,44,.62) 100%)}
+}
+@media(min-width:1600px){.hero-in{grid-template-columns:minmax(0,1.6fr) minmax(0,.55fr) 380px}}
+@media(max-width:760px){
+body .hero-text h1,body.ta .hero-text h1{font-size:clamp(14px,4.2vw,17px)}
+.hc h2{font-size:clamp(25px,7.4vw,34px)}
+body.ta .hc h2{font-size:clamp(23px,6.6vw,31px)}
+.hc-act .btn{width:100%}
+.hc-more{width:100%;text-align:center}
+}
+
+/* ---------- Life Insurance section ---------- */
+.life{background:var(--soft);padding:44px 0;border-top:1px solid #e7ecf3}
+.life-in{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:center}
+.lf-tag{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:8px}
+body.ta .lf-tag{letter-spacing:.04em;text-transform:none;font-size:13.5px}
+.life h2{font-size:clamp(24px,3vw,36px);line-height:1.2;font-weight:800;color:var(--navy2);margin-bottom:14px;text-wrap:balance}
+body.ta .life h2{line-height:1.35}
+.lf-hl{font-size:clamp(16px,1.6vw,20px);font-weight:600;line-height:1.45;color:var(--navy);border-left:4px solid var(--gold2);padding-left:14px;margin-bottom:16px}
+.life-copy>p:not(.lf-tag):not(.lf-hl){font-size:15px;line-height:1.75;color:#33425f;margin-bottom:10px;max-width:60ch}
+.lf-catch{font-size:clamp(17px,1.7vw,21px);line-height:1.4;font-weight:700;color:var(--navy2);margin:20px 0 18px}
+.lf-act{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
+.lf-link{background:none;color:var(--navy2);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:4px;min-height:44px;padding:0 4px}
+.lf-link:hover{color:var(--gold2)}
+.lf-note{display:block;margin-top:12px;max-width:60ch;font-size:12px;line-height:1.55;color:#4a5876}
+.life-vis{margin:0;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);background:var(--navy);min-width:0}
+.life-vis img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:53.5% 26%}
+.life-vis blockquote{background:linear-gradient(120deg,var(--navy),var(--navy2));color:#fff;padding:18px 20px;border-top:3px solid var(--gold1)}
+.life-vis blockquote p{font-size:clamp(15px,1.4vw,18px);font-style:italic;font-weight:600;line-height:1.55}
+body.ta .life-vis blockquote p{line-height:1.7}
+@media(max-width:900px){.life-in{grid-template-columns:minmax(0,1fr)}.life{padding:34px 0}.lf-act .btn{width:100%}.lf-link{width:100%;text-align:center}}
+
+@media(prefers-reduced-motion:reduce){
+.hc,.hc.is-on{transition:none}
+.hc.is-on>*{animation:none!important}
+}
