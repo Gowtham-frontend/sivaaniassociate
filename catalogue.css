@@ -27,3 +27,8 @@ body.cat-view main>section:not(#catalogue){display:none}body.cat-view #catalogue
 .dt .sp a,.dt .sp span.in{font-size:12px;margin-right:10px;color:#1769D2}.dt .sp button{float:right;border:0;background:#F2B632;border-radius:999px;padding:4px 12px;font:inherit;font-size:12px;font-weight:600;cursor:pointer}
 .dt .sp.on{border-color:#F2B632;background:#fff8e6}
 .eq-ov .full{grid-column:1/-1}.ok{background:#e9f9ef;border:1px solid #b6e8c8;border-radius:10px;padding:12px;font-size:13.5px}.bd{background:#fdecea;border:1px solid #f3b9b3;border-radius:10px;padding:12px;font-size:13.5px;color:#a93226}
+
+/* promotional banner (Child Plans) */
+.ct-promo{grid-column:1/-1;background:linear-gradient(120deg,#B3121F,#E5303B 45%,#1769D2);color:#fff;border-radius:16px;padding:18px 22px;box-shadow:0 8px 22px rgba(179,18,31,.22)}
+.ct-promo b{display:block;font-size:clamp(16px,2.2vw,21px);line-height:1.35;text-wrap:balance}.ct-promo p{margin-top:6px;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.94)}
+.dt .ct-promo{margin-bottom:12px;padding:14px 16px}.dt .ct-promo p{color:rgba(255,255,255,.94)}

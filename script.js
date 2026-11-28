@@ -9,19 +9,22 @@ const CONFIG = {
     hero: "",                              // e.g. "images/family.jpg"
     avatars: ["", "", ""]                  // reviewer photos
   },
-  partners: [                              // set logo:"images/x.png" to use official logos
-    { name: "TATA AIA", logo: "", color: "#0A4DA2" },
-    { name: "LIC", logo: "", color: "#E6A700" },
-    { name: "Star Health", logo: "", color: "#0B3B8C" },
-    { name: "Galaxy Health", logo: "", color: "#6A1B9A" }
+  partners: [                              // set logo:"images/x.png" to use official logos (none supplied yet, so names show as text)
+    { name: "Tata AIA", type: "Life Insurance", logo: "", color: "#0A4DA2" },
+    { name: "LIC", type: "Life Insurance", logo: "", color: "#E6A700" },
+    { name: "Star Health", type: "Health Insurance", logo: "", color: "#0B3B8C" },
+    { name: "Galaxy", type: "Health Insurance", logo: "", color: "#6A1B9A" },
+    { name: "Niva Bupa", type: "Health Insurance", logo: "", color: "#0F4C9A" }
   ],
   products: [                              // img: path to photo
     { id: "life", icon: "👨‍👩‍👧", img: "", en: "Life Insurance", ta: "ஆயுள் காப்பீடு" },
     { id: "health", icon: "🩺", img: "", en: "Health Insurance", ta: "மருத்துவ காப்பீடு" },
     { id: "child", icon: "🎒", img: "", en: "Child Plans", ta: "குழந்தை திட்டங்கள்" },
     { id: "retire", icon: "🌴", img: "", en: "Retirement Plans", ta: "ஓய்வூதிய திட்டங்கள்" },
-    { id: "savings", icon: "🐷", img: "", en: "Savings & Investment", ta: "சேமிப்பு & முதலீடு" },
-    { id: "vehicle", icon: "🚗", img: "", en: "Vehicle Insurance", ta: "வாகன காப்பீடு" }
+    { id: "business", icon: "🏢", img: "", en: "Business Insurance", ta: "வணிக காப்பீடு" },
+    { id: "motor", icon: "🚗", img: "", en: "Motor Insurance", ta: "மோட்டார் காப்பீடு" },
+    { id: "travel", icon: "✈️", img: "", en: "Travel Insurance", ta: "பயணக் காப்பீடு" },
+    { id: "home", icon: "🏠", img: "", en: "Home & Property Insurance", ta: "வீடு & சொத்து காப்பீடு" }
   ],
   times: { en: ["Morning (9–12)", "Afternoon (12–4)", "Evening (4–8)"], ta: ["காலை (9–12)", "மதியம் (12–4)", "மாலை (4–8)"] },
   testimonials: [],                         // Add ONLY genuine reviews with the customer's written permission: { en:"…", ta:"…", name:"First name, Town", nameTa:"…" }. While empty, the site shows an honest "reviews will appear here" message.
@@ -30,7 +33,7 @@ const CONFIG = {
 /* ============ i18n ============ */
 const I18N = {
   en: { tagline:"Your Trusted Insurance Partner", nav_home:"Home", nav_about:"About Us", nav_products:"Insurance Products", nav_career:"Career", nav_testi:"Testimonials", nav_contact:"Contact Us", dd_why:"Why Choose Us", dd_exp:"Our Experience", enquire:"Enquire Now",
-    h1a:"Your Family.<br>Your Future.", h1b:"Our Priority.", hsub:"உங்கள் குடும்பத்தின் எதிர்காலத்தை பாதுகாக்க சரியான Insurance வழிகாட்டுதல்.", explore:"Explore Insurance Plans",
+    h1a:"Your Family.<br>Your Future.", h1b:"Our Priority.", hsub:"", explore:"Explore Insurance Plans",
     gh:"Get Expert Guidance", gs:"Find the Right Insurance Plan", chat:"Chat on WhatsApp", safe:"We ask only for what's needed",
     trusted:"Insurers We Guide You On", years:"Years Experience", sol:"Our Insurance Solutions",
     why:"Why Choose <b>Sivaani Associate?</b>", w1:"Expert Guidance & Support", w2:"Wide Range of Policy Options", w3:"Transparent Advice", w4:"Dedicated Service",
@@ -69,8 +72,8 @@ function buildStatic(){
      <a href="${CONFIG.social.youtube}" aria-label="YouTube">${icon("M22 8a3 3 0 00-2-2c-2-.5-8-.5-8-.5s-6 0-8 .5A3 3 0 002 8a31 31 0 000 8 3 3 0 002 2c2 .5 8 .5 8 .5s6 0 8-.5a3 3 0 002-2 31 31 0 000-8zM10 15V9l5 3z")}</a>
      <a href="${CONFIG.social.linkedin}" aria-label="LinkedIn">${icon("M4 9h4v12H4zM6 3a2 2 0 110 4 2 2 0 010-4zm4 6h4v2c.7-1.200 2-2.200 4-2.200 4 0 4 3 4 5.200V21h-4v-6c0-1.500-.5-2.500-2-2.500S14 13.500 14 15v6h-4z")}</a>`;
   const ns = document.createElement("div"); ns.className = "social nav-social"; ns.innerHTML = $("#social").innerHTML; $("#nav").appendChild(ns);
-  $("#partners").innerHTML = CONFIG.partners.map(p => p.logo
-    ? `<img src="${p.logo}" alt="${p.name}">` : `<span style="color:${p.color}">${p.name}</span>`).join("");
+  $("#partners").innerHTML = CONFIG.partners.map(p => `<span class="pl">${p.logo
+    ? `<img src="${p.logo}" alt="${p.name}">` : `<b style="color:${p.color}">${p.name}</b>`}<small>${p.type || ""}</small></span>`).join("");
   $("#cards").innerHTML = CONFIG.products.map(p =>
     `<a class="pc" href="#" data-id="${p.id}"><div class="ph" style="${p.img ? `background-image:url('${p.img}')` : "background:linear-gradient(135deg,#dfe9f7,#f4e7c3)"}">${p.img ? "" : p.icon}</div><div class="bar"><span data-p="${p.id}"></span><i>→</i></div></a>`).join("");
   $("#cards").addEventListener("click", e => {
@@ -254,6 +257,10 @@ buildStatic(); applyLang(lang); go(0);
     else if (k === "career") { const a = $('#nav > a[href="#career"]'); if (a) a.click(); }          /* opens the existing Career popup */
     else if (window.openEnquiry) window.openEnquiry(k);                                              /* existing product enquiry form */
     else { const s = $("#products"); if (s) s.scrollIntoView({ behavior: smooth() }); }
+  }));
+  document.querySelectorAll("[data-go]").forEach(a => a.addEventListener("click", e => {
+    e.preventDefault();
+    if (window.openCatalogue) window.openCatalogue(a.dataset.go); else location.hash = "#catalogue";   /* products page, filtered to that category */
   }));
   document.querySelectorAll("[data-enq]").forEach(b => b.addEventListener("click", () => {
     if (window.openEnquiry) window.openEnquiry(b.dataset.enq); else { const s = $("#products"); if (s) s.scrollIntoView({ behavior: smooth() }); }

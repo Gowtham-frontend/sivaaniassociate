@@ -1,0 +1,21 @@
+/* Highlight carousel (red + blue accents), partners labels, 8-category grid. Loaded last; layout, header, footer and navigation are untouched. */
+.hero{--rd1:#E5303B;--rd2:#B3121F}
+/* slide label: red pill */
+.hc-tag{width:fit-content;background:linear-gradient(135deg,var(--rd1),var(--rd2));color:#fff!important;padding:5px 14px;border-radius:999px;text-shadow:none;box-shadow:0 4px 14px rgba(179,18,31,.45)}
+body.ta .hc-tag{padding:5px 14px}
+/* highlight line: red accent bar */
+.hc-sub{border-left:4px solid var(--rd1);padding-left:12px}
+.hc-sub:empty,.hc-desc:empty{display:none}
+/* CTA: red button */
+.btn.red{background:linear-gradient(135deg,var(--rd1),var(--rd2));color:#fff;box-shadow:0 4px 16px rgba(229,48,59,.5)}
+.btn.red:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(229,48,59,.65)}
+/* slide dots: red progress instead of gold */
+.hs-dots button::after{background:linear-gradient(90deg,var(--rd1),var(--rd2))}
+/* blue depth on the hero overlay */
+.hero-shade{box-shadow:inset 0 -80px 120px -60px rgba(23,105,210,.35)}
+/* partners: name + insurance type */
+.p-logos .pl{display:inline-flex;flex-direction:column;align-items:center;gap:2px;line-height:1.15;text-align:center}
+.p-logos .pl b{font-weight:800}
+.p-logos .pl small{font-size:11px;font-weight:500;letter-spacing:0;color:#4a5876}
+/* 8 insurance categories: 4 per row from tablet up */
+@media(min-width:761px){.grid6{grid-template-columns:repeat(4,1fr)}}

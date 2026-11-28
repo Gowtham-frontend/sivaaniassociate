@@ -70,3 +70,9 @@ body.ta .life-vis blockquote p{line-height:1.7}
 .hc,.hc.is-on{transition:none}
 .hc.is-on>*{animation:none!important}
 }
+
+/* ---------- hero: English sub-line removed, so give the strapline room above the slide label + heading ----------
+   Applies only while the sub-line is empty (Tamil mode keeps its own sub-line and spacing).
+   Fluid: ~16px phones, ~18px tablets, ~26-28px desktop. Label and heading keep their existing tight pairing. */
+.hero-text .sub:empty{display:none}
+.hero-text .sub:empty+.hs-copy{margin-top:clamp(16px,1.1vw + 10px,28px)}

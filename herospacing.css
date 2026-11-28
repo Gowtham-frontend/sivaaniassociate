@@ -1,0 +1,188 @@
+/* =====================================================================
+   HERO SPACING & ALIGNMENT REFINEMENT
+   ---------------------------------------------------------------------
+   Loaded LAST (after messages.css). Spacing, padding, margins, line-height,
+   max-width and alignment ONLY. No colours, fonts, font sizes, images,
+   content, links or behaviour are changed.
+
+   Vertical rhythm (desktop, fluid down to mobile):
+     strapline bar  -> --hs-s1
+     strapline      -> --hs-s4  -> section label
+     section label  -> --hs-s2  -> main heading
+     main heading   -> --hs-s3  -> subtitle
+     subtitle       -> --hs-s3  -> description
+     description    -> --hs-s4  -> CTA row
+     CTA row        -> --hs-s2  -> disclaimer note
+     disclaimer     -> --hs-s4  -> secondary (outline) button
+   ===================================================================== */
+
+.hero{
+  /* spacing scale: every value is fluid, so it shrinks smoothly on tablet/mobile */
+  --hs-s1:clamp(12px,.6vw + 8px,16px);   /* tiny  */
+  --hs-s2:clamp(12px,.8vw + 8px,18px);   /* small */
+  --hs-s3:clamp(14px,1vw + 8px,22px);    /* medium */
+  --hs-s4:clamp(22px,2vw + 10px,38px);   /* large (section breaks) */
+  --hs-gutter:clamp(20px,2vw,32px);
+}
+
+/* ---------- section container: consistent top/bottom padding + column gap ---------- */
+.hero-in{
+  gap:var(--hs-gutter);
+  padding-top:clamp(40px,4.6vw,76px);
+  padding-bottom:clamp(76px,6.4vw,104px);   /* extra room so the slide controls never touch the buttons */
+}
+
+/* ---------- text column: one left edge, comfortable measure so copy stays off the photo's subject ---------- */
+.hero-text{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;     /* every child shares the same left margin */
+  max-width:660px;
+  padding:0;
+  margin:0;
+}
+.hero-text>*{margin-left:0;padding-left:0}
+
+/* ---------- 1. top tagline (gold bar + "Your Family. Your Future. Our Priority.") ---------- */
+body .hero-text h1,body.ta .hero-text h1{
+  line-height:1.5;
+  margin:0;
+  padding:0;
+  letter-spacing:.01em;
+}
+.hero-text h1::before{margin:0 0 var(--hs-s1)}   /* gold bar sits clear of the tagline */
+.hero-text h1 span,.hero-text h1 em{margin:0}
+
+/* ---------- Tamil mode keeps its own sub-line: give it the same rhythm ---------- */
+.hero-text .sub{
+  margin:var(--hs-s2) 0 0;
+  padding:0;
+  line-height:1.6;
+}
+.hero-text .sub:empty{display:none}
+
+/* ---------- slide copy block ---------- */
+.hero-text .hs-copy{width:100%;margin-top:var(--hs-s4)}
+.hero-text .sub:not(:empty)+.hs-copy{margin-top:var(--hs-s4)}
+.hero-text .sub:empty+.hs-copy{margin-top:var(--hs-s4)}
+
+/* 2. section label */
+.hc-tag{
+  display:block;
+  margin:0 0 var(--hs-s2);
+  line-height:1.5;
+  letter-spacing:.16em;
+}
+body.ta .hc-tag{letter-spacing:.04em;line-height:1.7}
+
+/* 3. main heading */
+.hc h2{
+  margin:0 0 var(--hs-s3);
+  line-height:1.2;
+  letter-spacing:-.005em;
+}
+body.ta .hc h2{line-height:1.42}
+
+/* 4. subtitle */
+.hc-sub{
+  margin:0 0 var(--hs-s3);
+  line-height:1.5;
+  max-width:36em;
+}
+body.ta .hc-sub{line-height:1.75}
+
+/* 5. description */
+.hc-desc{
+  margin:0 0 var(--hs-s4);
+  line-height:1.8;
+  max-width:min(560px,100%);
+}
+body.ta .hc-desc{line-height:1.95}
+
+/* 6. CTA row: button + text link get real horizontal breathing room */
+.hc-act{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:14px clamp(20px,2.2vw,32px);
+  margin:0;
+}
+.hc-act .btn{margin:0}
+.hc-more{
+  padding:0 2px;
+  min-height:44px;
+  line-height:1.4;
+  text-underline-offset:6px;
+}
+
+/* 7. disclaimer note */
+.hc-note{
+  margin:var(--hs-s2) 0 0;
+  padding:0;
+  max-width:min(520px,100%);
+  line-height:1.65;
+}
+
+/* 8. secondary outline button: clear separation from the block above */
+.hc-explore{
+  margin:var(--hs-s4) 0 0;
+  align-self:flex-start;
+}
+
+/* ---------- desktop: let the photo breathe on the right ---------- */
+@media(min-width:1101px){
+  .hero-in{
+    min-height:clamp(520px,34vw,780px);
+    /* more room for the text column (the middle column only holds the decorative shield) */
+    grid-template-columns:minmax(0,1.8fr) minmax(0,.4fr) 340px;
+  }
+}
+
+/* ---------- tablet (761px - 1100px): text beside the enquiry form ---------- */
+@media(max-width:1100px) and (min-width:761px){
+  .hero-in{
+    gap:clamp(24px,3.4vw,36px);
+    padding-top:clamp(32px,4.4vw,44px);
+    padding-bottom:clamp(44px,5vw,56px);
+    align-items:start;
+  }
+  .hero-text{max-width:none}
+}
+
+/* ---------- mobile (<= 760px): single column, full-width stacked actions ---------- */
+@media(max-width:760px){
+  .hero{
+    --hs-s1:10px;
+    --hs-s2:12px;
+    --hs-s3:14px;
+    --hs-s4:24px;
+  }
+  .hero-in{
+    gap:32px;                      /* space between the text block and the enquiry form */
+    padding-top:28px;
+    padding-bottom:36px;
+  }
+  .hero-text{max-width:none}
+  .hc h2{line-height:1.22}
+  body.ta .hc h2{line-height:1.4}
+  .hc-desc{line-height:1.75;max-width:none}
+  .hc-act{gap:10px 0;flex-direction:column;align-items:stretch}
+  .hc-act .btn,.hc-more{width:100%;text-align:center}
+  .hc-more{justify-content:center}
+  .hc-note{max-width:none;text-align:left}
+  .hc-explore{width:100%;margin-top:var(--hs-s4)}
+}
+
+/* ---------- small phones (<= 380px) ---------- */
+@media(max-width:380px){
+  .hero-in{padding-top:24px;padding-bottom:32px;gap:28px}
+  .hero{--hs-s4:22px}
+}
+
+/* ---------- short landscape phones: keep it compact but not cramped ---------- */
+@media(max-height:520px) and (orientation:landscape){
+  .hero{--hs-s1:8px;--hs-s2:10px;--hs-s3:12px;--hs-s4:18px}
+  .hero-in{padding-top:20px;padding-bottom:28px}
+}
+
+@media(min-width:1600px){.hero-in{grid-template-columns:minmax(0,1.8fr) minmax(0,.4fr) 380px}}

@@ -7,16 +7,16 @@ function build(){root.innerHTML=`<div class="wrap"><a class="ct-back" href="#hom
 <div class="ct-head"><h2>Explore Our Insurance Products</h2><p>Find the Right Insurance Protection for Every Stage of Your Life.</p></div>
 <div class="ct-tools"><input id="ctQ" type="search" placeholder="Search insurance products…" aria-label="Search insurance products"></div>
 <div class="ct-chips" id="ctF"></div><div class="ct-grid" id="ctG" aria-live="polite"></div>
-<p class="ct-note">Information here is indicative and general. Product types were checked against insurer and regulator sources; availability, eligibility, premiums and benefits are confirmed only in the insurer's policy documents and a written quotation. No returns or claims are guaranteed.</p></div>`;
+<p class="ct-note">Information here is indicative and general. Availability, eligibility, premiums and benefits are confirmed only in the insurer's policy documents and a written quotation. No returns or claims are guaranteed.</p></div>`;
 G=root.querySelector("#ctG");F=root.querySelector("#ctF");built=1;draw()}
 const ins=k=>k.map(x=>{const[n,u]=C.insurers[x];return u?`<a href="${u}" target="_blank" rel="noopener noreferrer">${esc(n)} ↗</a>`:`<span class="in">${esc(n)}</span>`}).join("");
 function draw(){
   F.innerHTML=[["all","All Products"],...C.cats.map(c=>[c.id,c.name])].map(([i,n])=>`<button type="button" data-f="${i}" class="${flt===i?"on":""}">${esc(n)}</button>`).join("");
   const s=q.trim().toLowerCase();
   const list=C.cats.filter(c=>(flt==="all"||c.id===flt)&&(!s||(c.name+" "+c.d+" "+c.subs.map(x=>x.n+" "+x.d).join(" ")).toLowerCase().includes(s)));
-  G.innerHTML=list.length?list.map(c=>`<article class="ct-card"><div class="ct-ic" aria-hidden="true"><span>${c.icon}</span>${c.icon2?`<span>${c.icon2}</span>`:""}</div><div class="ct-b"><h3>${esc(c.name)}</h3><p>${esc(c.d)}</p>
+  G.innerHTML=(flt==="child"&&!s?promo(cat("child")):"")+(list.length?list.map(c=>`<article class="ct-card"><div class="ct-ic" aria-hidden="true"><span>${c.icon}</span>${c.icon2?`<span>${c.icon2}</span>`:""}</div><div class="ct-b"><h3>${esc(c.name)}</h3><p>${esc(c.d)}</p>
   <div class="ct-subs">${c.subs.map(x=>`<button type="button" data-d="${c.id}" data-s="${c.subs.indexOf(x)}">${esc(x.n)}</button>`).join("")}</div>
-  <div class="ct-act"><button type="button" class="v" data-d="${c.id}">View Details</button><button type="button" class="e" data-e="${c.id}">Enquiry Now</button></div></div></article>`).join(""):`<p class="ct-empty">No products match "${esc(q)}". Try another word or choose All Products.</p>`;
+  <div class="ct-act"><button type="button" class="v" data-d="${c.id}">View Details</button><button type="button" class="e" data-e="${c.id}">Enquiry Now</button></div></div></article>`).join(""):`<p class="ct-empty">No products match "${esc(q)}". Try another word or choose All Products.</p>`);
 }
 function modal(html){
   if(!ov){ov=document.createElement("div");ov.className="eq-ov";ov.innerHTML='<div class="eq" role="dialog" aria-modal="true"></div>';document.body.appendChild(ov);box=ov.firstChild;
@@ -28,11 +28,12 @@ function modal(html){
 }
 function shut(){ov.classList.remove("open");document.body.style.overflow="";last&&last.focus&&last.focus()}
 const head=t=>`<div class="eq-h"><b>${esc(t)}<small>Sivaani Associate</small></b><button class="eq-x" data-x aria-label="Close">×</button></div>`;
+const promo=c=>c.promo?`<div class="ct-promo"><b>${esc(c.promo.h)}</b><p>${esc(c.promo.t)}</p></div>`:"";
 const ul=a=>`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
 function details(id,si){
   const c=cat(id);
-  modal(`${head(c.name)}<div class="eq-b dt"><p>${esc(c.d)}</p>
-  <h4>Available product types</h4>${c.subs.map((x,i)=>`<div class="sp${i===si?" on":""}"><button data-ed="${id}" data-es="${i}">Enquiry Now</button><b>${esc(x.n)}</b><p>${esc(x.d)}</p><span class="in" style="color:#4a5876">Offered by:</span> ${ins(x.i)}</div>`).join("")}
+  modal(`${head(c.name)}<div class="eq-b dt">${promo(c)}<p>${esc(c.d)}</p>
+  <h4>Available product types</h4>${c.subs.map((x,i)=>`<div class="sp${i===si?" on":""}"><button data-ed="${id}" data-es="${i}">Enquiry Now</button><b>${esc(x.n)}</b><p>${esc(x.d)}</p>${x.i&&x.i.length?`<span class="in" style="color:#4a5876">Offered by:</span> ${ins(x.i)}`:""}</div>`).join("")}
   <h4>Key features</h4>${ul(c.feat)}<h4>Main benefits</h4>${ul(c.ben)}<h4>Eligibility</h4><p>${esc(c.elig)}</p><h4>Important exclusions and limitations</h4>${ul(c.excl)}
   <p class="ct-note" style="margin-top:14px">Indicative information only – not a quotation. Confirm all details in the insurer's policy wording.</p></div>
   <div class="eq-f"><button class="btn gold" data-ed="${id}" data-es="${si||0}">Enquiry Now →</button></div>`);
@@ -77,5 +78,6 @@ root.addEventListener("click",e=>{const t=e.target;last=t.closest("button")||las
   const d=t.closest("[data-d]");if(d)return details(d.dataset.d,d.dataset.s!=null?+d.dataset.s:undefined)});
 root.addEventListener("input",e=>{if(e.target.id!=="ctQ")return;clearTimeout(tm);const v=e.target.value;tm=setTimeout(()=>{q=v;draw()},120)});
 function route(){const on=location.hash==="#catalogue";if(on&&!built)build();document.body.classList.toggle("cat-view",on);if(on){window.scrollTo(0,0);setTimeout(function(){window.scrollTo(0,0)},60)}}
+window.openCatalogue=function(id){flt=id&&cat(id)?id:"all";q="";if(!built)build();else{const i=root.querySelector("#ctQ");if(i)i.value="";draw()}if(location.hash==="#catalogue")route();else location.hash="#catalogue"};
 addEventListener("hashchange",route);route();(window.requestIdleCallback||setTimeout)(function(){if(!built)build()});
 })();
